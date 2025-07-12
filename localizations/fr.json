@@ -1,0 +1,220 @@
+{
+  "buttons": {
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "enter": "Entrer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "finish": "Finition",
+    "ok": "OK",
+    "goToHomepage": "Aller à la page d'accueil",
+    "print": "Imprimer"
+  },
+  "calibrations": {
+    "loadCell": "Chargeur",
+    "start": "Commencer à calibrer",
+    "tankCell": "Cellule de réservoir"
+  },
+  "dialogs": {
+    "sureToSave": "Êtes-vous sûr de vouloir économiser?"
+  },
+  "errors": {
+    "emptyValue": "La valeur est vide!",
+    "fieldIsRequired": "Le champ est obligatoire",
+    "genericError": "Erreur générique",
+    "invalidSerialNumber": "Numéro de série non valide (doit correspondre XXYYZZZZZ)",
+    "missingIdentityKey": "Clé d'identité manquante",
+    "invalidWiringDiagram": "Schéma de câblage non valide",
+    "powerBoardDriverDisconnected": "Conducteur de la carte électrique déconnecté",
+    "procedureError": "La procédure a rencontré l'erreur suivante",
+    "vacuum": {
+      "alarm": "Erreur de procédure d'aspiration",
+      "leakDetected": "Fuite détectée dans la procédure de vide",
+      "systemNotEmpty": "Le système semble ne pas être vide pendant la procédure d'aspiration"
+    },
+    "recoveryRecycle": {
+      "pleaseEmptyUsedOilContainer": "Veuillez vider le contenant d'huile usagée. Une fois fait, appuyez sur OK pour continuer.",
+      "alarm": "Procédure en état d'alarme",
+      "highPressure": "Haute pression détectée",
+      "systemEmpty": "Le système de climatisation est vide",
+      "tankFull": "Le réservoir est plein"
+    }
+  },
+  "fields": {
+    "gain": "Gagner",
+    "language": "Langue",
+    "offset": "Compenser",
+    "pressure": "Pression",
+    "tare": "Tare",
+    "temperature": "Température",
+    "unitsOfMeasure": "Unités de mesure",
+    "volume": "Volume",
+    "weight": "Poids",
+    "software": "Logiciel",
+    "serialNumber": "Numéro de série",
+    "license": "Licence",
+    "dbVersion": "Version de la base de données",
+    "activationCode": "Code d'activation",
+    "ambientTemperature": "Température ambiante",
+    "tankTemperature": "Température du réservoir",
+    "tankPressure": "Pression du réservoir",
+    "vin": "VIN",
+    "acPressure": "Pression A/C",
+    "evaporatorPressure": "Pression de l'évaporateur"
+  },
+  "messages": {
+    "valueModified": "Valeur modifiée",
+    "enterCodeToAccessAdvancedSettings": "Entrez le code pour accéder aux paramètres avancés",
+    "connectPipesMessage": "Veuillez connecter et ouvrir à la fois le couplage HP et LP au système de climatisation. Ouvrez les vannes côté HP et LP et appuyez sur Continuer.",
+    "disconnectPipesMessage": "Veuillez fermer et déconnecter les accouplements HP et LP du système de climatisation et appuyez sur Continuer."
+  },
+  "misc": {
+    "back": "Dos",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "converted": "Converti",
+    "error": "Erreur",
+    "info": "Informations",
+    "raw": "Brut",
+    "set": "Ensemble",
+    "warning": "Avertissement",
+    "yes": "Oui",
+    "stop": "Arrêt",
+    "processed": "Traité",
+    "insertVin": "Insérez le VIN",
+    "instructions": "Instructions",
+    "continue": "Continuer",
+    "skipAndContinue": "Passer & Continuer",
+    "startup": "Démarrer",
+    "pleaseWait": "Veuillez patienter...",
+    "endOfProcedure": "Fin de la procédure",
+    "mustBeAtLeast": "{{field}} doit être au moins {{minValue}} {{unit}}",
+    "mustBeAtMost": "{{field}} doit être au maximum {{maxValue}} {{unit}}",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "paused": "En Pause",
+    "alarm": "Alarme",
+    "ok": "OK",
+    "waiting": "En attente..."
+  },
+  "operationTitles": {
+    "automatic": "Automatique",
+    "calibrations": "Étalonnage",
+    "factorySetup": "Configuration d'usine",
+    "info": "Informations",
+    "maintenance": "Entretien",
+    "manual": "Procédure manuelle",
+    "services": "Services",
+    "setup": "Installation",
+    "advancedSupport": "Support avancé",
+    "testIO": "Test de I/O",
+    "vacuum": "Aspirateur",
+    "recoveryRecycle": "Récupération / Recyclage"
+  },
+  "operations": {
+    "automatic": "Automatique",
+    "info": "Informations",
+    "maintenance": "Entretien",
+    "maintenance_": {
+      "calibrations": "Étalonnage",
+      "calibrations_": {
+        "loadCell": "Étalonnage des cellules de chargement",
+        "loadCell_": {
+          "calibrationCompleted": "Étalonnage terminé",
+          "calibrationFailed": "L'étalonnage a échoué",
+          "gainStepCaption": "Mettez les poids de référence sur la plaque.\nLorsque la lecture est stable, veuillez saisir la valeur de référence des poids.",
+          "gainStepInput": "Poids de référence",
+          "offsetStepCaption": "Veuillez retirer le réservoir et tout autre objet de la plaque. \nLorsque la lecture est stable, appuyez sur \"Suivant\" pour enregistrer une valeur brute minimale.",
+          "offsetStepInput": " ",
+          "tareStepCaption": "Maintenant, montez le réservoir, connectez les tuyaux à haute pression et à basse pression et la courroie de chauffage, puis entrez la valeur de tare lire ci-dessus et appuyez sur «Confirmer».",
+          "tareStepInput": "Tare",
+          "tank": "Étalonnage de cellule de réservoir",
+          "newOil": "Nouvelle calibration de cellule d'huile",
+          "usedOil": "Calibration de cellule d'huile usagée"
+        },
+        "temperature": "Étalonnage de température",
+        "temperature_": {
+          "ambient": "Ambiant",
+          "tank": "Char",
+          "ambientCalibration": "Étalonnage de la température ambiante",
+          "tankCalibration": "Étalonnage de la température du réservoir",
+          "enterAmbientCalibration": "Entrez la nouvelle valeur de température ambiante",
+          "enterTankCalibration": "Entrez la nouvelle valeur de température du réservoir"
+        }
+      },
+      "advancedSupport": "Support avancé",
+      "advancedSupport_": {
+        "calibrations": "Étalonnage",
+        "testio": "Tester les I/O",
+        "testIo_": {
+          "meters": {
+            "tankCell": "Réservoir",
+            "usedOilCell": "Cellule d'huile utilisée",
+            "acPressure": "Pression de climatisation",
+            "tankTemperature": "Température du réservoir",
+            "tankPressure": "Pression du réservoir"
+          },
+          "testRun": "Essai",
+          "runs": {
+            "recovery": "Récupération",
+            "recoveryDischarge": "Récupération, décharge d'huile",
+            "vacuum": "Vide",
+            "pagOilInjection": "Injection d'huile de PAG",
+            "poeOilInjection": "Injection d'huile de POE",
+            "dyeOilInjection": "Injection d'huile DYE",
+            "charge": "Charge"
+          },
+          "actuatorPressButRunningProcedure": "Pour basculer cet actionneur, vous devez d'abord arrêter la procédure.",
+          "testRunPressButActiveActuators": "Pour démarrer un essai, vous devez d'abord désactiver tous les actionneurs"
+        }
+      }
+    },
+    "manual": "Manuel",
+    "manual_": {
+      "charge": "Charge",
+      "oilInjection": "Injection d'huile",
+      "recovery": "Récupération",
+      "vacuum": "Vide",
+      "vacuum_": {
+        "setVacuumTime": "Définir le temps d'aspiration",
+        "selectOption": "Sélectionnez la configuration dans la section de gauche",
+        "vacuumTime": "Temps de vide",
+        "vacuumHoldTime": "Temps de maintien du vide",
+        "vacuumInProgress": "Aspiration en cours",
+        "leakCheckInProgress": "Vérification de fuite en cours"
+      },
+      "recoveryRecycle": "Récupération & Recyclage",
+      "recoveryRecycle_": {
+        "firstPhase": "Extraction de gaz du système de climatisation, phase 1",
+        "oilDischarge": "Décharge d'huile du système de climatisation",
+        "secondPhase": "Extraction de gaz du système de climatisation, phase 2",
+        "recoveredGas": "Gaz récupéré",
+        "recoveredOil": "Huile récupérée",
+        "oilDischargeTime": "Temps de décharge d'huile",
+        "recoveryTotalTime": "Temps total de récupération"
+      }
+    },
+    "services": "Services",
+    "setup": "Installation",
+    "setup_": {
+      "language": "Langue",
+      "unitsOfMeasure": "Unités de mesure",
+      "quickSetup": "Quicksetup",
+      "quickSetup_": {
+        "completed": "Quicksetup terminé"
+      }
+    }
+  },
+  "wifi": {},
+  "peripherals": {
+    "loadCellTank": "Cellule de réservoir",
+    "loadCellNewOil": "Cellule de nouvel huile",
+    "loadCellUsedOil": "Cellule d'huile usagée",
+    "temperatureTank": "Température du réservoir",
+    "temperatureAmbient": "Température ambiante",
+    "temperatureSensors": "Capteurs de température"
+  },
+  "units": {
+    "minutes": "minutes"
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "buttons": {
+    "close": "Cerca",
+    "confirm": "Confirmar",
+    "enter": "Ingresar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "finish": "Finalizar",
+    "ok": "OK",
+    "goToHomepage": "Ir a la página de inicio",
+    "print": "Imprimir"
+  },
+  "calibrations": {
+    "loadCell": "Cargar celda",
+    "start": "Iniciar calibración",
+    "tankCell": "Celda de tanque"
+  },
+  "dialogs": {
+    "sureToSave": "¿Estás seguro de que quieres guardar?"
+  },
+  "errors": {
+    "emptyValue": "¡El valor está vacío!",
+    "fieldIsRequired": "El campo es obligatorio",
+    "genericError": "Error genérico",
+    "invalidSerialNumber": "Número de serie no válido (debe coincidir con XXYYZZZZZ)",
+    "missingIdentityKey": "Clave de identidad faltante",
+    "invalidWiringDiagram": "Diagrama de cableado no válido",
+    "powerBoardDriverDisconnected": "Power Board Driver desconectado",
+    "procedureError": "El procedimiento encontró el siguiente error",
+    "vacuum": {
+      "alarm": "Error en el procedimiento de vacío",
+      "leakDetected": "Se detectó una fuga en el procedimiento de vacío",
+      "systemNotEmpty": "El sistema parece no estar vacío durante el procedimiento de vacío"
+    },
+    "recoveryRecycle": {
+      "pleaseEmptyUsedOilContainer": "Por favor, vacíe el contenedor de aceite usado. Una vez hecho esto, presione OK para continuar.",
+      "alarm": "Procedimiento en estado de alarma",
+      "highPressure": "Presión alta detectada",
+      "systemEmpty": "El sistema de A/C está vacío",
+      "tankFull": "El tanque está lleno"
+    }
+  },
+  "fields": {
+    "gain": "Ganar",
+    "language": "Idioma",
+    "offset": "Compensar",
+    "pressure": "Presión",
+    "tare": "Tara",
+    "temperature": "Temperatura",
+    "unitsOfMeasure": "Unidades de medida",
+    "volume": "Volumen",
+    "weight": "Peso",
+    "software": "Software",
+    "serialNumber": "Número de serie",
+    "license": "Licencia",
+    "dbVersion": "Versión de la base de datos",
+    "activationCode": "Código de activación",
+    "ambientTemperature": "Temperatura ambiente",
+    "tankTemperature": "Temperatura del tanque",
+    "tankPressure": "Presión del tanque",
+    "vin": "VIN",
+    "acPressure": "Presión del A/C",
+    "evaporatorPressure": "Presión del evaporador"
+  },
+  "messages": {
+    "valueModified": "Valor modificado",
+    "enterCodeToAccessAdvancedSettings": "Ingrese el código para acceder a la configuración avanzada",
+    "connectPipesMessage": "Por favor, conecte y abra ambos acoplamientos HP y LP al sistema de A/C. Abra las válvulas laterales de HP y LP y presione Continuar.",
+    "disconnectPipesMessage": "Por favor, cierre y desconecte las conexiones de HP y LP del sistema de A/C y presione Continuar."
+  },
+  "misc": {
+    "back": "Atrás",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "converted": "Convertido",
+    "error": "Error",
+    "info": "Información",
+    "raw": "Crudo",
+    "set": "Colocar",
+    "warning": "Advertencia",
+    "yes": "Sí",
+    "stop": "Detener",
+    "processed": "Procesado",
+    "insertVin": "Inserte VIN",
+    "instructions": "Instrucciones",
+    "continue": "Continuar",
+    "skipAndContinue": "Omitir y Continuar",
+    "startup": "Puesta en marcha",
+    "pleaseWait": "Por favor espera...",
+    "endOfProcedure": "Fin del procedimiento",
+    "mustBeAtLeast": "{{field}} debe ser al menos {{minValue}} {{unit}}",
+    "mustBeAtMost": "{{field}} debe ser como máximo {{maxValue}} {{unit}}",
+    "pause": "Pausa",
+    "resume": "Reanudar",
+    "paused": "Pausado",
+    "alarm": "Alarma",
+    "ok": "OK",
+    "waiting": "Esperando..."
+  },
+  "operationTitles": {
+    "automatic": "Automático",
+    "calibrations": "Calibraciones",
+    "factorySetup": "Configuración de fábrica",
+    "info": "Información",
+    "maintenance": "Mantenimiento",
+    "manual": "Procedimiento manual",
+    "services": "Servicios",
+    "setup": "Configuración",
+    "advancedSupport": "Apoyo avanzado",
+    "testIO": "Prueba de I/O",
+    "vacuum": "Aspiradora",
+    "recoveryRecycle": "Recuperación / Reciclaje"
+  },
+  "operations": {
+    "automatic": "Automático",
+    "info": "Información",
+    "maintenance": "Mantenimiento",
+    "maintenance_": {
+      "calibrations": "Calibraciones",
+      "calibrations_": {
+        "loadCell": "Calibración de celda de carga",
+        "loadCell_": {
+          "calibrationCompleted": "Calibración completada",
+          "calibrationFailed": "Calibración falló",
+          "gainStepCaption": "Coloque los pesos de referencia en la placa.\nCuando la lectura sea estable, ingrese el valor de referencia de pesos.",
+          "gainStepInput": "Peso de referencia",
+          "offsetStepCaption": "Retire el tanque y cualquier otro objeto de la placa. \nCuando la lectura sea estable, toque \"Siguiente\" para guardar un valor bruto mínimo.",
+          "offsetStepInput": " ",
+          "tareStepCaption": "Ahora monte el tanque, conecte mangueras de alta y baja presión y la correa de calefacción, luego ingrese el valor de tare lea arriba y toque \"Confirmar\".",
+          "tareStepInput": "Tara",
+          "tank": "Calibración de celda de tanque",
+          "newOil": "Nueva calibración de celda de aceite",
+          "usedOil": "Calibración de celda de aceite usado"
+        },
+        "temperature": "Calibración de temperatura",
+        "temperature_": {
+          "ambient": "Ambiente",
+          "tank": "Tanque",
+          "ambientCalibration": "Calibración de temperatura ambiente",
+          "tankCalibration": "Calibración de temperatura del tanque",
+          "enterAmbientCalibration": "Ingrese el nuevo valor de temperatura ambiente",
+          "enterTankCalibration": "Ingrese el nuevo valor de temperatura del tanque"
+        }
+      },
+      "advancedSupport": "Apoyo avanzado",
+      "advancedSupport_": {
+        "calibrations": "Calibraciones",
+        "testio": "Prueba de I/O",
+        "testIo_": {
+          "meters": {
+            "tankCell": "Celda tanque",
+            "usedOilCell": "Célula petrolera usada",
+            "acPressure": "Presión de A/C",
+            "tankTemperature": "Temperatura del tanque",
+            "tankPressure": "Presión del tanque"
+          },
+          "testRun": "Prueba",
+          "runs": {
+            "recovery": "Recuperación",
+            "recoveryDischarge": "Recuperación, descarga de aceite",
+            "vacuum": "Vacío",
+            "pagOilInjection": "Inyección de aceite de PAG",
+            "poeOilInjection": "Inyección de aceite de POE",
+            "dyeOilInjection": "Inyección de aceite DYE",
+            "charge": "Cargar"
+          },
+          "actuatorPressButRunningProcedure": "Para alternar este actuador, primero debe detener el procedimiento.",
+          "testRunPressButActiveActuators": "Para comenzar una prueba de ejecución, primero debe deshabilitar a todos los actuadores"
+        }
+      }
+    },
+    "manual": "Manual",
+    "manual_": {
+      "charge": "Cargar",
+      "oilInjection": "inyección de aceite",
+      "recovery": "Recuperación",
+      "vacuum": "Vacío",
+      "vacuum_": {
+        "setVacuumTime": "Establecer tiempo de vacío",
+        "selectOption": "Seleccione la configuración en la sección izquierda",
+        "vacuumTime": "Hora de aspirar",
+        "vacuumHoldTime": "Tiempo de sujeción al vacío",
+        "vacuumInProgress": "Proceso de aspirado en progreso",
+        "leakCheckInProgress": "Verificación de fugas en progreso"
+      },
+      "recoveryRecycle": "Recuperación y Reciclaje",
+      "recoveryRecycle_": {
+        "firstPhase": "Extracción de gas del sistema de A/C, fase 1",
+        "oilDischarge": "Descarga de aceite del sistema de A/C",
+        "secondPhase": "Extracción de gas del sistema de A/C, fase 2",
+        "recoveredGas": "Gas recuperado",
+        "recoveredOil": "Aceite recuperado",
+        "oilDischargeTime": "Tiempo de descarga de aceite",
+        "recoveryTotalTime": "Tiempo total de recuperación"
+      }
+    },
+    "services": "Servicios",
+    "setup": "Configuración",
+    "setup_": {
+      "language": "Idioma",
+      "unitsOfMeasure": "Unidades de medida",
+      "quickSetup": "Quicksetup",
+      "quickSetup_": {
+        "completed": "Quicksetup completada"
+      }
+    }
+  },
+  "wifi": {},
+  "peripherals": {
+    "loadCellTank": "Celda de tanque",
+    "loadCellNewOil": "Celda de nuevo aceite",
+    "loadCellUsedOil": "Celda de aceite usado",
+    "temperatureTank": "Temperatura del tanque",
+    "temperatureAmbient": "Temperatura ambiente",
+    "temperatureSensors": "Sensores de temperatura"
+  },
+  "units": {
+    "minutes": "minutos"
+  }
+}

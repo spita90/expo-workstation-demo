@@ -1,0 +1,220 @@
+{
+  "buttons": {
+    "close": "Close",
+    "confirm": "Confirm",
+    "enter": "Enter",
+    "next": "Next",
+    "previous": "Previous",
+    "finish": "Finish",
+    "ok": "OK",
+    "goToHomepage": "Go to Homepage",
+    "print": "Print"
+  },
+  "calibrations": {
+    "loadCell": "Load cell",
+    "start": "Start calibration",
+    "tankCell": "Tank cell"
+  },
+  "dialogs": {
+    "sureToSave": "Are you sure you want to save?"
+  },
+  "errors": {
+    "emptyValue": "Value is empty!",
+    "fieldIsRequired": "Field is mandatory",
+    "genericError": "Generic error",
+    "invalidSerialNumber": "Invalid Serial Number format (must match XXYYZZZZZ)",
+    "missingIdentityKey": "Missing Identity Key",
+    "invalidWiringDiagram": "Invalid wiring diagram",
+    "powerBoardDriverDisconnected": "Power Board Driver disconnected",
+    "procedureError": "The procedure encountered the following error",
+    "vacuum": {
+      "alarm": "Vacuum procedure error",
+      "leakDetected": "Leak detected in vacuum procedure",
+      "systemNotEmpty": "System seems to be not empty during vacuum procedure"
+    },
+    "recoveryRecycle": {
+      "pleaseEmptyUsedOilContainer": "Please empty the used oil container. Once done press OK to continue.",
+      "alarm": "Procedure in alarm state",
+      "highPressure": "High pressure detected",
+      "systemEmpty": "A/C system is empty",
+      "tankFull": "The tank is full"
+    }
+  },
+  "fields": {
+    "gain": "Gain",
+    "language": "Language",
+    "offset": "Offset",
+    "pressure": "Pressure",
+    "tare": "Tare",
+    "temperature": "Temperature",
+    "unitsOfMeasure": "Units of measure",
+    "volume": "Volume",
+    "weight": "Weight",
+    "software": "Software",
+    "serialNumber": "Serial number",
+    "license": "License",
+    "dbVersion": "Database version",
+    "activationCode": "Activation code",
+    "ambientTemperature": "Ambient temperature",
+    "tankTemperature": "Tank temperature",
+    "tankPressure": "Tank pressure",
+    "vin": "VIN",
+    "acPressure": "A/C pressure",
+    "evaporatorPressure": "Evaporator pressure"
+  },
+  "messages": {
+    "valueModified": "Value modified",
+    "enterCodeToAccessAdvancedSettings": "Enter the code to access advanced settings",
+    "connectPipesMessage": "Please connect and open both HP and LP coupling to the A/C system. Open HP and LP side valves and press Continue.",
+    "disconnectPipesMessage": "Please close and disconnect HP and LP couplings from A/C system and press Continue."
+  },
+  "misc": {
+    "back": "Back",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "converted": "Converted",
+    "error": "Error",
+    "info": "Info",
+    "raw": "Raw",
+    "set": "Set",
+    "warning": "Warning",
+    "yes": "Yes",
+    "stop": "Stop",
+    "processed": "Processed",
+    "insertVin": "Insert VIN",
+    "instructions": "Instructions",
+    "continue": "Continue",
+    "skipAndContinue": "Skip & Continue",
+    "startup": "Startup",
+    "pleaseWait": "Please wait...",
+    "endOfProcedure": "End of procedure",
+    "mustBeAtLeast": "{{field}} must be at least {{minValue}} {{unit}}",
+    "mustBeAtMost": "{{field}} must be at most {{maxValue}} {{unit}}",
+    "pause": "Pause",
+    "resume": "Resume",
+    "paused": "Paused",
+    "alarm": "Alarm",
+    "ok": "OK",
+    "waiting": "Waiting..."
+  },
+  "operationTitles": {
+    "automatic": "Automatic",
+    "calibrations": "Calibrations",
+    "factorySetup": "Factory setup",
+    "info": "Info",
+    "maintenance": "Maintenance",
+    "manual": "Manual procedure",
+    "services": "Services",
+    "setup": "Setup",
+    "advancedSupport": "Advanced support",
+    "testIO": "I/O Test",
+    "vacuum": "Vacuum",
+    "recoveryRecycle": "Recovery / Recycle"
+  },
+  "operations": {
+    "automatic": "Automatic",
+    "info": "Info",
+    "maintenance": "Maintenance",
+    "maintenance_": {
+      "calibrations": "Calibrations",
+      "calibrations_": {
+        "loadCell": "Load cell calibration",
+        "loadCell_": {
+          "calibrationCompleted": "Calibration completed",
+          "calibrationFailed": "Calibration failed",
+          "gainStepCaption": "Put the reference weights on the cell plate.\nWhen the reading is stable, please enter the weights reference value.",
+          "gainStepInput": "Reference weight",
+          "offsetStepCaption": "Please remove the tank and any other object from the cell plate. When the reading is stable, tap on \"Next\" to save minimum raw value.",
+          "offsetStepInput": " ",
+          "tareStepCaption": "Now mount the tank, connect high and low pressure hoses and the heating belt, then enter the tare value read above and tap on “Confirm”.",
+          "tareStepInput": "Tare",
+          "tank": "Tank cell calibration",
+          "newOil": "New oil cell calibration",
+          "usedOil": "Used oil cell calibration"
+        },
+        "temperature": "Temperature calibration",
+        "temperature_": {
+          "ambient": "Ambient",
+          "tank": "Tank",
+          "ambientCalibration": "Ambient temperature calibration",
+          "tankCalibration": "Tank temperature calibration",
+          "enterAmbientCalibration": "Enter the new ambient temperature value",
+          "enterTankCalibration": "Enter the new tank temperature value"
+        }
+      },
+      "advancedSupport": "Advanced support",
+      "advancedSupport_": {
+        "calibrations": "Calibrations",
+        "testio": "I/O test",
+        "testIo_": {
+          "meters": {
+            "tankCell": "Tank cell",
+            "usedOilCell": "Used oil cell",
+            "acPressure": "A/C pressure",
+            "tankTemperature": "Tank temperature",
+            "tankPressure": "Tank pressure"
+          },
+          "testRun": "Test run",
+          "runs": {
+            "recovery": "Recovery",
+            "recoveryDischarge": "Recovery, oil discharge",
+            "vacuum": "Vacuum",
+            "pagOilInjection": "PAG oil injection",
+            "poeOilInjection": "POE oil injection",
+            "dyeOilInjection": "DYE oil injection",
+            "charge": "Charge"
+          },
+          "actuatorPressButRunningProcedure": "To toggle this actuator you must stop the procedure first.",
+          "testRunPressButActiveActuators": "To start a test run you must disable all actuators first"
+        }
+      }
+    },
+    "manual": "Manual",
+    "manual_": {
+      "charge": "Charge",
+      "oilInjection": "Oil injection",
+      "recovery": "Recovery",
+      "vacuum": "Vacuum",
+      "vacuum_": {
+        "setVacuumTime": "Set vacuum time",
+        "selectOption": "Select the configuration on the left section",
+        "vacuumTime": "Vacuum time",
+        "vacuumHoldTime": "Vacuum hold time",
+        "vacuumInProgress": "Vacuum in progress",
+        "leakCheckInProgress": "Leak check in progress"
+      },
+      "recoveryRecycle": "Recovery & Recycle",
+      "recoveryRecycle_": {
+        "firstPhase": "Gas extraction from A/C system, 1st phase",
+        "oilDischarge": "Oil discharge from A/C system",
+        "secondPhase": "Gas extraction from A/C system, 2nd phase",
+        "oilDischargeTime": "Oil discharge time",
+        "recoveryTotalTime": "Recovery total time",
+        "recoveredGas": "Recovered gas",
+        "recoveredOil": "Recovered oil"
+      }
+    },
+    "services": "Services",
+    "setup": "Setup",
+    "setup_": {
+      "language": "Language",
+      "unitsOfMeasure": "Units of measure",
+      "quickSetup": "Quicksetup",
+      "quickSetup_": {
+        "completed": "Quicksetup completed"
+      }
+    }
+  },
+  "wifi": {},
+  "peripherals": {
+    "loadCellTank": "Tank cell",
+    "loadCellNewOil": "New oil cell",
+    "loadCellUsedOil": "Used oil cell",
+    "temperatureTank": "Tank temperature",
+    "temperatureAmbient": "Ambient temperature",
+    "temperatureSensors": "Temperature sensors"
+  },
+  "units": {
+    "minutes": "minutes"
+  }
+}

@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gradient-button-stroke: linear-gradient(
+      1deg,
+      #52525b 1.03%,
+      #4a4a4a 67.27%,
+      #fff 99.17%
+    );
+
+    --gradient-button-fill: linear-gradient(
+      180deg,
+      rgba(249, 250, 251, 0.4) 0%,
+      rgba(116, 117, 118, 0.4) 100%
+    );
+
+    --background: #333333;
+    --destructive: #dc2626;
+
+    /* Typography */
+    --typography-title-large-font-size: 24px;
+    --typography-title-large-line-height: 32px;
+    --typography-title-large-letter-spacing: "-0.6%";
+
+    --typography-title-medium-font-size: 20px;
+    --typography-title-medium-line-height: 28px;
+    --typography-title-medium-letter-spacing: "-0.5%";
+
+    --typography-title-small-font-size: 16px;
+    --typography-title-small-line-height: 24px;
+    --typography-title-small-letter-spacing: "-0.5%";
+
+    --typography-paragraph-large-font-size: 18px;
+    --typography-paragraph-large-line-height: 28px;
+    --typography-paragraph-large-letter-spacing: "0%";
+
+    --typography-paragraph-medium-font-size: 16px;
+    --typography-paragraph-medium-line-height: 24px;
+    --typography-paragraph-medium-letter-spacing: "0%";
+
+    --typography-paragraph-small-font-size: 14px;
+    --typography-paragraph-small-line-height: 20px;
+    --typography-paragraph-small-letter-spacing: "0%";
+
+    --typography-caption-font-size: 12px;
+    --typography-caption-line-height: 16px;
+    --typography-caption-letter-spacing: "0%";
+
+    --typography-caption-font-size: 12px;
+    --typography-caption-line-height: 16px;
+    --typography-caption-letter-spacing: 0px;
+
+    /* Spacing */
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-24: 24px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-48: 48px;
+    --spacing-56: 56px;
+    --spacing-64: 64px;
+    --spacing-80: 80px;
+    --spacing-96: 96px;
+  }
+}
+
+@layer utilities {
+  .border-gradient-button-stroke {
+    position: relative;
+  }
+
+  .border-gradient-button-stroke::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-button-stroke);
+    -webkit-mask: linear-gradient(white 0 0) content-box,
+      linear-gradient(white 0 0);
+    mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
