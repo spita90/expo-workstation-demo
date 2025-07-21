@@ -32,7 +32,7 @@
       "leakDetected": "Se detectó una fuga en el procedimiento de vacío",
       "systemNotEmpty": "El sistema parece no estar vacío durante el procedimiento de vacío"
     },
-    "recoveryRecycle": {
+    "firstProcedure": {
       "pleaseEmptyUsedOilContainer": "Por favor, vacíe el contenedor de aceite usado. Una vez hecho esto, presione OK para continuar.",
       "alarm": "Procedimiento en estado de alarma",
       "highPressure": "Presión alta detectada",
@@ -110,8 +110,8 @@
     "setup": "Configuración",
     "advancedSupport": "Apoyo avanzado",
     "testIO": "Prueba de I/O",
-    "vacuum": "Aspiradora",
-    "recoveryRecycle": "Recuperación / Reciclaje"
+    "secondProcedure": "Segundo procedimiento",
+    "firstProcedure": "Primer procedimiento"
   },
   "operations": {
     "automatic": "Automático",
@@ -158,8 +158,8 @@
           },
           "testRun": "Prueba",
           "runs": {
-            "recovery": "Recuperación",
-            "recoveryDischarge": "Recuperación, descarga de aceite",
+            "firstProcedure": "Recuperación",
+            "firstProcedureDischarge": "Recuperación, descarga de aceite",
             "vacuum": "Vacío",
             "pagOilInjection": "Inyección de aceite de PAG",
             "poeOilInjection": "Inyección de aceite de POE",
@@ -173,27 +173,26 @@
     },
     "manual": "Manual",
     "manual_": {
-      "charge": "Cargar",
-      "oilInjection": "inyección de aceite",
-      "recovery": "Recuperación",
-      "vacuum": "Vacío",
-      "vacuum_": {
-        "setVacuumTime": "Establecer tiempo de vacío",
+      "thirdProcedure": "Tercer procedimiento",
+      "fourthProcedure": "Cuarto procedimiento",
+      "firstProcedure": "Primer procedimiento",
+      "secondProcedure": "Segundo procedimiento",
+      "secondProcedure_": {
+        "setSecondProcedureTime": "Establecer tiempo de vacío",
         "selectOption": "Seleccione la configuración en la sección izquierda",
         "vacuumTime": "Hora de aspirar",
         "vacuumHoldTime": "Tiempo de sujeción al vacío",
         "vacuumInProgress": "Proceso de aspirado en progreso",
         "leakCheckInProgress": "Verificación de fugas en progreso"
       },
-      "recoveryRecycle": "Recuperación y Reciclaje",
-      "recoveryRecycle_": {
+      "firstProcedure_": {
         "firstPhase": "Extracción de gas del sistema de A/C, fase 1",
         "oilDischarge": "Descarga de aceite del sistema de A/C",
         "secondPhase": "Extracción de gas del sistema de A/C, fase 2",
         "recoveredGas": "Gas recuperado",
         "recoveredOil": "Aceite recuperado",
         "oilDischargeTime": "Tiempo de descarga de aceite",
-        "recoveryTotalTime": "Tiempo total de recuperación"
+        "firstProcedureTotalTime": "Tiempo total de recuperación"
       }
     },
     "services": "Servicios",

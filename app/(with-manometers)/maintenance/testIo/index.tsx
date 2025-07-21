@@ -37,9 +37,9 @@ type ActuatorView = {
 };
 
 type TestRunCode =
-  | "recovery"
-  // | "recoveryDischarge"
-  | "vacuum"
+  | "firstProcedure"
+  // | "firstProcedureDischarge"
+  | "secondProcedure"
   | "pagOilInjection"
   | "poeOilInjection"
   | "dyeOilInjection"
@@ -199,8 +199,9 @@ type TestRun = {
 
 const testRuns: TestRun[] = [
   {
-    code: "recovery",
-    nameKey: "operations.maintenance_.advancedSupport_.testIo_.runs.recovery",
+    code: "firstProcedure",
+    nameKey:
+      "operations.maintenance_.advancedSupport_.testIo_.runs.firstProcedure",
     actuators: [
       Peripheral.EV_01,
       Peripheral.EV_02,
@@ -211,14 +212,15 @@ const testRuns: TestRun[] = [
     unavailableForWiringDiagrams: [WiringDiagram.TYPE_1, WiringDiagram.TYPE_2],
   },
   // {
-  //   code: "recoveryDischarge",
+  //   code: "firstProcedureDischarge",
   //   nameKey:
-  //     "operations.maintenance_.advancedSupport_.testIo_.runs.recoveryDischarge",
+  //     "operations.maintenance_.advancedSupport_.testIo_.runs.firstProcedureDischarge",
   //   actuators: [Peripheral.EV_05, Peripheral.EV_06, Peripheral.EV_07],
   // },
   {
-    code: "vacuum",
-    nameKey: "operations.maintenance_.advancedSupport_.testIo_.runs.vacuum",
+    code: "secondProcedure",
+    nameKey:
+      "operations.maintenance_.advancedSupport_.testIo_.runs.secondProcedure",
     actuators: [
       Peripheral.EV_01,
       Peripheral.EV_02,
@@ -1011,7 +1013,7 @@ export default function TestIOScreen() {
                 />
               </path>
             )}
-            {runningTestRunCode === "recovery" && (
+            {runningTestRunCode === "firstProcedure" && (
               <path
                 d="M289.5 306.5V293H458V289H422V285.5H459.5V281.5H422V277.5H459.5V274H422V270.5H459.5V267.5H391V131H424.5V134.5H441V138.5H424.5V142.5H441V146.5H424.5V150.5H455V184.5H671.5V103.5H546.5V116H449H376.5V82.5H258.5V52H202.5M202.5 52V31.5H98.5M202.5 52V73.5H98.5"
                 stroke="#A8F0FF"
@@ -1031,7 +1033,7 @@ export default function TestIOScreen() {
                 />
               </path>
             )}
-            {runningTestRunCode === "vacuum" && (
+            {runningTestRunCode === "secondProcedure" && (
               <path
                 d="M559 238V224.5H402.5V68H367.5V51.5H202.5M202.5 51.5V31.5H98M202.5 51.5V73.5H98"
                 stroke="#00C7BE"

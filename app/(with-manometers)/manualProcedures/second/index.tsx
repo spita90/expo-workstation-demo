@@ -28,7 +28,7 @@ export default function SecondProcedureScreen() {
     .min(
       Number(PROCEDURE_MIN_SECONDS),
       t("misc.mustBeAtLeast", {
-        field: t("operations.manual_.vacuum_.vacuumTime"),
+        field: t("operations.manual_.secondProcedure_.secondProcedureTime"),
         minValue: PROCEDURE_MIN_SECONDS,
         unit: t("units.seconds"),
       })
@@ -36,13 +36,13 @@ export default function SecondProcedureScreen() {
     .max(
       Number(PROCEDURE_MAX_SECONDS),
       t("misc.mustBeAtMost", {
-        field: t("operations.manual_.vacuum_.vacuumTime"),
+        field: t("operations.manual_.secondProcedure_.secondProcedureTime"),
         maxValue: PROCEDURE_MAX_SECONDS,
         unit: t("units.seconds"),
       })
     );
 
-  const handleVacuumTimeConfirmPress = () => {
+  const handleSecondProcedureTimeConfirmPress = () => {
     try {
       vacuumTimeSchema.parse(procedureSeconds);
       setInsertVinMode(true);
@@ -55,7 +55,11 @@ export default function SecondProcedureScreen() {
 
   const handleVinContinuePress = async () => {
     if (!procedureSeconds) {
-      console.error("Missing values:", "editingVacuumTime", procedureSeconds);
+      console.error(
+        "Missing values:",
+        "editingSecondProcedureTime",
+        procedureSeconds
+      );
       return;
     }
     try {
@@ -78,7 +82,7 @@ export default function SecondProcedureScreen() {
 
   return (
     <Page
-      title={t("operationTitles.vacuum")}
+      title={t("operationTitles.secondProcedure")}
       border={insertVinMode ? "popOver" : "basic"}
       onBackButtonPress={handleBackButtonPress}
     >
@@ -88,7 +92,7 @@ export default function SecondProcedureScreen() {
           <View className="flex-1 rounded p-4 bg-background">
             <View className="flex-row justify-between items-center">
               <Text className="paragraph-regular-medium">
-                {t("operations.manual_.vacuum_.vacuumTime")}
+                {t("operations.manual_.secondProcedure_.secondProcedureTime")}
               </Text>
               <Input
                 className="w-40"
@@ -109,7 +113,7 @@ export default function SecondProcedureScreen() {
               <View className="flex-row gap-4 w-[72%]">
                 <Button
                   className="flex-1"
-                  onPress={handleVacuumTimeConfirmPress}
+                  onPress={handleSecondProcedureTimeConfirmPress}
                 >
                   <Text>{t("misc.confirm")}</Text>
                 </Button>

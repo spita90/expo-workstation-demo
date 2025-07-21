@@ -17,7 +17,10 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useShallow } from "zustand/shallow";
 
-export type RecoveryRecycleRunningScreenProps = {
+export const FIRST_PROCEDURE_TOTAL_TIME_MAX_SEC = 20;
+export const FIRST_PROCEDURE_INNER_PHASE_TIME_MAX_SEC = 5;
+
+export type FirstProcedureRunningScreenProps = {
   vin: string;
 };
 
@@ -25,6 +28,7 @@ export enum FirstProcedureState {
   INITIAL_CHECK,
   CONNECT_DEVICE,
   RUNNING,
+  INNER_PHASE,
   PAUSED,
   DISCONNECT_DEVICE,
   CLOSED,
@@ -34,7 +38,7 @@ const A_AMOUNT_UOM = UnitOfMeasure.GRAMS;
 const B_AMOUNT_UOM = UnitOfMeasure.GRAMS;
 
 export default function FirstProcedureRunningScreen() {
-  const { vin } = useLocalSearchParams<RecoveryRecycleRunningScreenProps>();
+  const { vin } = useLocalSearchParams<FirstProcedureRunningScreenProps>();
 
   const finalInnerPhaseElapsedTime = useRef<number>(0);
   const finalTotalTime = useRef<number>(0);
@@ -68,17 +72,55 @@ export default function FirstProcedureRunningScreen() {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTotalElapsed((currentElapsed) => currentElapsed + 1);
-      setInnerPhaseElapsed((currentElapsed) => currentElapsed + 1);
-    }, 200);
-    if (procedureState === FirstProcedureState.INITIAL_CHECK) {
-      setTimeout(() => {
-        setProcedureState(FirstProcedureState.CONNECT_DEVICE);
-      }, 1000);
+    // Don't set up timer if paused or in non-running states
+    if (
+      ![FirstProcedureState.RUNNING, FirstProcedureState.INNER_PHASE].includes(
+        procedureState
+      )
+    ) {
+      // Handle initial check state transition
+      if (procedureState === FirstProcedureState.INITIAL_CHECK) {
+        const timeout = setTimeout(() => {
+          setProcedureState(FirstProcedureState.CONNECT_DEVICE);
+        }, 1000);
+        return () => clearTimeout(timeout);
+      }
+      return;
     }
+
+    const interval = setInterval(() => {
+      // Update total elapsed time for both running and inner phase states
+      setTotalElapsed((prev) => prev + 1);
+
+      // Handle inner phase specific logic
+      if (procedureState === FirstProcedureState.INNER_PHASE) {
+        if (innerPhaseElapsed < FIRST_PROCEDURE_INNER_PHASE_TIME_MAX_SEC) {
+          setInnerPhaseElapsed((prev) => prev + 1);
+        } else {
+          setProcedureState(FirstProcedureState.RUNNING);
+        }
+        return;
+      }
+
+      // Check for state transitions based on elapsed times
+      const isHalfwayReached =
+        totalElapsed >= FIRST_PROCEDURE_TOTAL_TIME_MAX_SEC / 2;
+      const isInnerPhaseIncomplete =
+        innerPhaseElapsed < FIRST_PROCEDURE_INNER_PHASE_TIME_MAX_SEC;
+      const isTotalTimeComplete =
+        totalElapsed >= FIRST_PROCEDURE_TOTAL_TIME_MAX_SEC;
+      const isInnerPhaseComplete =
+        innerPhaseElapsed >= FIRST_PROCEDURE_INNER_PHASE_TIME_MAX_SEC;
+
+      if (isHalfwayReached && isInnerPhaseIncomplete) {
+        setProcedureState(FirstProcedureState.INNER_PHASE);
+      } else if (isTotalTimeComplete && isInnerPhaseComplete) {
+        setProcedureState(FirstProcedureState.DISCONNECT_DEVICE);
+      }
+    }, 1000);
+
     return () => clearInterval(interval);
-  });
+  }, [procedureState, innerPhaseElapsed, totalElapsed]);
 
   useEffect(() => {
     if ([FirstProcedureState.DISCONNECT_DEVICE].includes(procedureState)) {
@@ -118,7 +160,10 @@ export default function FirstProcedureRunningScreen() {
     procedureState
   );
 
-  const isRunning = [FirstProcedureState.RUNNING].includes(procedureState);
+  const isRunning = [
+    FirstProcedureState.RUNNING,
+    FirstProcedureState.INNER_PHASE,
+  ].includes(procedureState);
 
   const isPaused = [FirstProcedureState.PAUSED].includes(procedureState);
 
@@ -134,7 +179,7 @@ export default function FirstProcedureRunningScreen() {
     router.dismissTo("/manualProcedures");
   };
 
-  const RecoveryBackButton = () => {
+  const FirstProcedureBackButton = () => {
     if (procedureState === FirstProcedureState.CONNECT_DEVICE)
       return <BackButton onPress={handleBackButtonPress} />;
     if (isRunning || isPaused)
@@ -143,16 +188,22 @@ export default function FirstProcedureRunningScreen() {
 
   return (
     <Page
-      title={t("operationTitles.recoveryRecycle")}
+      title={t("operationTitles.firstProcedure")}
       border={isWaiting ? "basic" : "popOver"}
       noBackButton={isWaiting}
-      backButton={<RecoveryBackButton />}
+      backButton={<FirstProcedureBackButton />}
     >
       {procedureState === FirstProcedureState.CONNECT_DEVICE && (
         <ConnectDeviceFragment onContinuePress={sendMessageRead} />
       )}
       {isWaiting && <PleaseWaitFragment />}
-      {(isRunning || isPaused) && <FirstProcedureRunningFragment />}
+      {(isRunning || isPaused) && (
+        <FirstProcedureRunningFragment
+          procedureState={procedureState}
+          innerPhaseElapsedTimeSeconds={innerPhaseElapsed}
+          totalElapsedTimeSeconds={totalElapsed}
+        />
+      )}
       {procedureState === FirstProcedureState.DISCONNECT_DEVICE && (
         <DisconnectDeviceFragment onContinuePress={sendMessageRead} />
       )}

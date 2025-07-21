@@ -32,7 +32,7 @@
       "leakDetected": "Fuite détectée dans la procédure de vide",
       "systemNotEmpty": "Le système semble ne pas être vide pendant la procédure d'aspiration"
     },
-    "recoveryRecycle": {
+    "firstProcedure": {
       "pleaseEmptyUsedOilContainer": "Veuillez vider le contenant d'huile usagée. Une fois fait, appuyez sur OK pour continuer.",
       "alarm": "Procédure en état d'alarme",
       "highPressure": "Haute pression détectée",
@@ -110,8 +110,8 @@
     "setup": "Installation",
     "advancedSupport": "Support avancé",
     "testIO": "Test de I/O",
-    "vacuum": "Aspirateur",
-    "recoveryRecycle": "Récupération / Recyclage"
+    "secondProcedure": "Deuxième procédure",
+    "firstProcedure": "Première procédure"
   },
   "operations": {
     "automatic": "Automatique",
@@ -158,8 +158,8 @@
           },
           "testRun": "Essai",
           "runs": {
-            "recovery": "Récupération",
-            "recoveryDischarge": "Récupération, décharge d'huile",
+            "firstProcedure": "Récupération",
+            "firstProcedureDischarge": "Récupération, décharge d'huile",
             "vacuum": "Vide",
             "pagOilInjection": "Injection d'huile de PAG",
             "poeOilInjection": "Injection d'huile de POE",
@@ -173,27 +173,26 @@
     },
     "manual": "Manuel",
     "manual_": {
-      "charge": "Charge",
-      "oilInjection": "Injection d'huile",
-      "recovery": "Récupération",
-      "vacuum": "Vide",
-      "vacuum_": {
-        "setVacuumTime": "Définir le temps d'aspiration",
+      "thirdProcedure": "Troisième procédure",
+      "fourthProcedure": "Quatrième procédure",
+      "firstProcedure": "Première procédure",
+      "secondProcedure": "Deuxième procédure",
+      "secondProcedure_": {
+        "setSecondProcedureTime": "Définir le temps d'aspiration",
         "selectOption": "Sélectionnez la configuration dans la section de gauche",
         "vacuumTime": "Temps de vide",
         "vacuumHoldTime": "Temps de maintien du vide",
         "vacuumInProgress": "Aspiration en cours",
         "leakCheckInProgress": "Vérification de fuite en cours"
       },
-      "recoveryRecycle": "Récupération & Recyclage",
-      "recoveryRecycle_": {
+      "firstProcedure_": {
         "firstPhase": "Extraction de gaz du système de climatisation, phase 1",
         "oilDischarge": "Décharge d'huile du système de climatisation",
         "secondPhase": "Extraction de gaz du système de climatisation, phase 2",
         "recoveredGas": "Gaz récupéré",
         "recoveredOil": "Huile récupérée",
         "oilDischargeTime": "Temps de décharge d'huile",
-        "recoveryTotalTime": "Temps total de récupération"
+        "firstProcedureTotalTime": "Temps total de récupération"
       }
     },
     "services": "Services",

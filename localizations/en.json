@@ -28,11 +28,11 @@
     "powerBoardDriverDisconnected": "Power Board Driver disconnected",
     "procedureError": "The procedure encountered the following error",
     "vacuum": {
-      "alarm": "Vacuum procedure error",
+      "alarm": "SecondProcedure procedure error",
       "leakDetected": "Leak detected in vacuum procedure",
       "systemNotEmpty": "System seems to be not empty during vacuum procedure"
     },
-    "recoveryRecycle": {
+    "firstProcedure": {
       "pleaseEmptyUsedOilContainer": "Please empty the used oil container. Once done press OK to continue.",
       "alarm": "Procedure in alarm state",
       "highPressure": "High pressure detected",
@@ -110,8 +110,8 @@
     "setup": "Setup",
     "advancedSupport": "Advanced support",
     "testIO": "I/O Test",
-    "vacuum": "Vacuum",
-    "recoveryRecycle": "Recovery / Recycle"
+    "secondProcedure": "Second Procedure",
+    "firstProcedure": "First Procedure"
   },
   "operations": {
     "automatic": "Automatic",
@@ -158,9 +158,9 @@
           },
           "testRun": "Test run",
           "runs": {
-            "recovery": "Recovery",
-            "recoveryDischarge": "Recovery, oil discharge",
-            "vacuum": "Vacuum",
+            "firstProcedure": "FirstProcedure",
+            "firstProcedureDischarge": "FirstProcedure, oil discharge",
+            "vacuum": "SecondProcedure",
             "pagOilInjection": "PAG oil injection",
             "poeOilInjection": "POE oil injection",
             "dyeOilInjection": "DYE oil injection",
@@ -173,25 +173,24 @@
     },
     "manual": "Manual",
     "manual_": {
-      "charge": "Charge",
-      "oilInjection": "Oil injection",
-      "recovery": "Recovery",
-      "vacuum": "Vacuum",
-      "vacuum_": {
-        "setVacuumTime": "Set vacuum time",
+      "thirdProcedure": "Third procedure",
+      "fourthProcedure": "Fourth procedure",
+      "firstProcedure": "First procedure",
+      "secondProcedure": "Second procedure",
+      "secondProcedure_": {
+        "setSecondProcedureTime": "Set second procedure time",
         "selectOption": "Select the configuration on the left section",
-        "vacuumTime": "Vacuum time",
-        "vacuumHoldTime": "Vacuum hold time",
-        "vacuumInProgress": "Vacuum in progress",
+        "secondProcedureTime": "Second procedure time",
+        "secondProcedureHoldTime": "Second procedure hold time",
+        "secondProcedureInProgress": "Second procedure in progress",
         "leakCheckInProgress": "Leak check in progress"
       },
-      "recoveryRecycle": "Recovery & Recycle",
-      "recoveryRecycle_": {
+      "firstProcedure_": {
         "firstPhase": "Gas extraction from A/C system, 1st phase",
         "oilDischarge": "Oil discharge from A/C system",
         "secondPhase": "Gas extraction from A/C system, 2nd phase",
         "oilDischargeTime": "Oil discharge time",
-        "recoveryTotalTime": "Recovery total time",
+        "firstProcedureTotalTime": "FirstProcedure total time",
         "recoveredGas": "Recovered gas",
         "recoveredOil": "Recovered oil"
       }

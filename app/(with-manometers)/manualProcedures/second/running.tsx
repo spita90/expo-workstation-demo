@@ -10,7 +10,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-export type VacuumRunningScreenProps = {
+export type SecondProcedureRunningScreenProps = {
   vin: string;
   durationSeconds: string;
 };
@@ -24,9 +24,9 @@ const enum SecondProcedureState {
   CLOSED,
 }
 
-export default function VacuumRunningScreen() {
+export default function SecondProcedureRunningScreen() {
   const { vin, durationSeconds } =
-    useLocalSearchParams<VacuumRunningScreenProps>();
+    useLocalSearchParams<SecondProcedureRunningScreenProps>();
 
   const router = useRouter();
   const { errorToast } = useToast();
@@ -80,7 +80,7 @@ export default function VacuumRunningScreen() {
     procedureState
   );
 
-  const isRunningVacuum = [SecondProcedureState.RUNNING].includes(
+  const isRunningSecondProcedure = [SecondProcedureState.RUNNING].includes(
     procedureState
   );
 
@@ -98,19 +98,19 @@ export default function VacuumRunningScreen() {
     router.dismissTo("/manualProcedures");
   };
 
-  const VacuumBackButton = () => {
+  const SecondProcedureBackButton = () => {
     if (procedureState === SecondProcedureState.CONNECT_DEVICE)
       return <BackButton onPress={handleBackButtonPress} />;
-    if (isRunningVacuum || isPaused)
+    if (isRunningSecondProcedure || isPaused)
       return <PauseButton isPaused={isPaused} onPress={onPauseTogglePress} />;
   };
 
   return (
     <Page
-      title={t("operationTitles.vacuum")}
+      title={t("operationTitles.secondProcedure")}
       border={isWaiting ? "basic" : "popOver"}
       noBackButton={isWaiting}
-      backButton={<VacuumBackButton />}
+      backButton={<SecondProcedureBackButton />}
     >
       {procedureState === SecondProcedureState.CONNECT_DEVICE && (
         <ConnectDeviceFragment onContinuePress={sendMessageRead} />
@@ -118,7 +118,9 @@ export default function VacuumRunningScreen() {
       {isWaiting && <PleaseWaitFragment type="startup" />}
       {procedureState === SecondProcedureState.RUNNING && (
         <SecondProcedureRunningFragment
-          label={t("operations.manual_.vacuum_.vacuumInProgress")}
+          label={t(
+            "operations.manual_.secondProcedure_.secondProcedureInProgress"
+          )}
           elapsedTime={totalElapsed}
           maxTime={Number(durationSeconds)}
         />

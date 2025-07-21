@@ -35,7 +35,7 @@ export default function FirstProcedureScreen() {
 
   return (
     <Page
-      title={t("operationTitles.recoveryRecycle")}
+      title={t("operationTitles.firstProcedure")}
       border={"popOver"}
       onBackButtonPress={handleBackButtonPress}
     >

@@ -32,7 +32,8 @@ export default function FirstProcedureFinishedScreen() {
             valueType: "duration",
           },
           {
-            fieldKey: "operations.manual_.FirstProcedure_.recoveryTotalTime",
+            fieldKey:
+              "operations.manual_.FirstProcedure_.firstProcedureTotalTime",
             value: Number(totalTime),
             valueType: "duration",
           },

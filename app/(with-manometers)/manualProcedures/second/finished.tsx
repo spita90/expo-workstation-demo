@@ -2,27 +2,28 @@ import { Page } from "@/components/Page";
 import { ProcedureFinishedFragment } from "@/components/commonFragments/ProcedureFinishedFragment";
 import { useLocalSearchParams } from "expo-router";
 
-export type VacuumFinishedScreenProps = {
+export type SecondProcedureFinishedScreenProps = {
   vin: string;
   elapsedTime: string;
   holdTime: string;
 };
 
-export default function VacuumFinishedScreen() {
+export default function SecondProcedureFinishedScreen() {
   const { vin, elapsedTime, holdTime } =
-    useLocalSearchParams<VacuumFinishedScreenProps>();
+    useLocalSearchParams<SecondProcedureFinishedScreenProps>();
 
   return (
     <Page border="popOver" noBackButton>
       <ProcedureFinishedFragment
         reportData={[
           {
-            fieldKey: "operations.manual_.vacuum_.vacuumTime",
+            fieldKey: "operations.manual_.secondProcedure_.secondProcedureTime",
             value: Number(elapsedTime),
             valueType: "duration",
           },
           {
-            fieldKey: "operations.manual_.vacuum_.vacuumHoldTime",
+            fieldKey:
+              "operations.manual_.secondProcedure_.secondProcedureHoldTime",
             value: Number(holdTime),
             valueType: "duration",
           },

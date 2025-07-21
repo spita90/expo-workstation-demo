@@ -1,9 +1,5 @@
 import { Text } from "@/components/ui/text";
-import {
-  getConvertUnitOfMeasure,
-  getUnitOfMeasureType,
-  UnitOfMeasure,
-} from "@/lib/utils";
+import { getUnitOfMeasureType, UnitOfMeasure } from "@/lib/utils";
 import { useGlobalStore } from "@/stores/globalStore";
 import { UnitOfMeasureSettings } from "@/stores/slices/appConfigSlice";
 import { UNITS_OF_MEASURE_SYMBOLS } from "@/types";
@@ -13,7 +9,6 @@ import {
   useFont,
   vec,
 } from "@shopify/react-native-skia";
-import convert, { Unit } from "convert-units";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
@@ -27,7 +22,8 @@ import {
 import { useShallow } from "zustand/shallow";
 
 export interface ChartProps {
-  metric: {
+  metric?: {
+    // if no metric is provided, chart will render random values
     metricName: string;
     chartValueType: "converted" | "raw";
   };
@@ -66,10 +62,10 @@ const getMetricRelatedUserUnitOfMeasure = (
 export const Chart = ({
   metric,
   yScale,
-  graphColor = "chartValueType" in metric
+  graphColor = metric && "chartValueType" in metric
     ? chartDefaultColorByType[metric.chartValueType]
     : "#3B82F6",
-  maxValues = 50,
+  maxValues = 30,
   throttleMs = 500,
   bottomRightLabel,
 }: ChartProps) => {
@@ -93,40 +89,63 @@ export const Chart = ({
   }, [userUnitOfMeasures, metricUnitOfMeasure.current]);
 
   useEffect(() => {
-    const unsub = useGlobalStore.subscribe((state) => {
-      const newVal = Number(
-        state.pbdMetrics[metric.metricName]?.[metric.chartValueType]
-      );
+    if (metric) {
+      const unsub = useGlobalStore.subscribe((state) => {
+        const newVal = Number(
+          state.pbdMetrics[metric.metricName]?.[metric.chartValueType]
+        );
 
-      if (!newVal || Number.isNaN(newVal)) return;
-      if (
-        state.pbdMetrics[metric.metricName].unitOfMeasure !==
-        metricUnitOfMeasure.current
-      ) {
-        metricUnitOfMeasure.current =
-          state.pbdMetrics[metric.metricName].unitOfMeasure;
-      }
-
-      const now = Date.now();
-      if (throttleMs > 0 && now - lastUpdateRef.current < throttleMs) return;
-      lastUpdateRef.current = now;
-      setData((currentData) => {
-        const newData = [...currentData, { count: 0, value: newVal }];
-        if (newData.length > maxValues) {
-          newData.shift();
+        if (!newVal || Number.isNaN(newVal)) return;
+        if (
+          state.pbdMetrics[metric.metricName].unitOfMeasure !==
+          metricUnitOfMeasure.current
+        ) {
+          metricUnitOfMeasure.current =
+            state.pbdMetrics[metric.metricName].unitOfMeasure;
         }
-        if (newData.length === maxValues) {
-          for (let i = 0; i < newData.length; i++) {
-            newData[i].count = i;
+
+        const now = Date.now();
+        if (throttleMs > 0 && now - lastUpdateRef.current < throttleMs) return;
+        lastUpdateRef.current = now;
+        setData((currentData) => {
+          const newData = [...currentData, { count: 0, value: newVal }];
+          if (newData.length > maxValues) {
+            newData.shift();
           }
-        } else {
-          newData[newData.length - 1].count = newData.length - 1;
-        }
-        return newData;
+          if (newData.length === maxValues) {
+            for (let i = 0; i < newData.length; i++) {
+              newData[i].count = i;
+            }
+          } else {
+            newData[newData.length - 1].count = newData.length - 1;
+          }
+          return newData;
+        });
       });
-    });
-
-    return unsub;
+      return unsub;
+    } else {
+      // if no metric is provided, chart will render random values (take care of throttleMs and maxValues)
+      const interval = setInterval(() => {
+        setData((currentData) => {
+          const newData = [
+            ...currentData,
+            { count: 0, value: Math.random() * 100 },
+          ];
+          if (newData.length > maxValues) {
+            newData.shift();
+          }
+          if (newData.length === maxValues) {
+            for (let i = 0; i < newData.length; i++) {
+              newData[i].count = i;
+            }
+          } else {
+            newData[newData.length - 1].count = newData.length - 1;
+          }
+          return newData;
+        });
+      }, throttleMs);
+      return () => clearInterval(interval);
+    }
   }, [metric, maxValues, throttleMs]);
 
   const autoYMin = useMemo(() => {
@@ -184,7 +203,7 @@ export const Chart = ({
         }
       </CartesianChart>
       <View className="flex-row px-2 bg-zinc-800 py-1 items-center rounded-b">
-        {metric.chartValueType === "converted" && !!userUnitOfMeasure && (
+        {metric?.chartValueType === "converted" && !!userUnitOfMeasure && (
           <Text className="flex-1 text-left">
             {UNITS_OF_MEASURE_SYMBOLS[userUnitOfMeasure]}
           </Text>
@@ -192,7 +211,7 @@ export const Chart = ({
         <Text className="flex-1 paragraph-semibold-medium text-right">
           {bottomRightLabel
             ? bottomRightLabel
-            : t(chartValueTypeLabel[metric.chartValueType])}
+            : metric && t(chartValueTypeLabel[metric.chartValueType])}
         </Text>
       </View>
     </View>
