@@ -56,7 +56,7 @@ const initialState: AppConfigState = {
   },
   systemConfig: {
     serialNumber: "",
-    wiringDiagram: WiringDiagram.TYPE_1,
+    wiringDiagram: WiringDiagram.UNDETERMINED,
   },
   wifiConnected: false,
 };

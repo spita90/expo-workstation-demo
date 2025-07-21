@@ -9,7 +9,7 @@ export default function ManometerLayout() {
   return (
     <>
       <TopBar />
-      <View className="w-screen h-[calc(100vh-50px)] bg-background">
+      <View className="w-full h-[calc(100%-50px)] bg-background">
         <View className="flex flex-col w-full h-full pt-2">
           <View className="flex flex-row flex-1 px-3 justify-between">
             <LeftManometers />

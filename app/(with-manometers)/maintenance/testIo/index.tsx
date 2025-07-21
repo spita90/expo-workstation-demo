@@ -279,7 +279,7 @@ const getActuatorLabel = (actuator: Peripheral) => {
   if (actuator in customLabelActuators) {
     return customLabelActuators[actuator];
   }
-  return actuator.toString().replaceAll("_0", "").replace("_", "");
+  return `AC${actuator}`;
 };
 
 export default function TestIOScreen() {

@@ -16,6 +16,7 @@ export const UNITS_OF_MEASURE_SYMBOLS: Partial<Record<UnitOfMeasure, string>> =
   };
 
 export enum WiringDiagram {
+  UNDETERMINED = 0,
   TYPE_1 = 1,
   TYPE_2 = 2,
   TYPE_3 = 3,

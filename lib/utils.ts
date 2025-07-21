@@ -21,18 +21,18 @@ export type UnitOfMeasureType =
   | "volume";
 
 export enum UnitOfMeasure {
-  UNIT_UNKNOWN = "",
-  BAR = "bar",
-  POUND_PER_SQUARE_INCH = "psi",
-  GRAMS = "g",
-  POUND = "lb",
-  OUNCE = "oz",
-  OUNCE_USCS = "oz_uscs",
-  CELSIUS_DEGREES = "C",
-  FAHRENHEIT_DEGREES = "F",
-  MILLILITERS = "ml",
-  FL_OUNCE = "fl_oz",
-  FL_OUNCE_USCS = "fl_oz_uscs",
+  UNIT_UNKNOWN,
+  BAR,
+  POUND_PER_SQUARE_INCH,
+  GRAMS,
+  POUND,
+  OUNCE,
+  OUNCE_USCS,
+  CELSIUS_DEGREES,
+  FAHRENHEIT_DEGREES,
+  MILLILITERS,
+  FL_OUNCE,
+  FL_OUNCE_USCS,
 }
 
 export const getUnitOfMeasureType = (

@@ -22,7 +22,7 @@
     "emptyValue": "¡El valor está vacío!",
     "fieldIsRequired": "El campo es obligatorio",
     "genericError": "Error genérico",
-    "invalidSerialNumber": "Número de serie no válido (debe coincidir con XXYYZZZZZ)",
+    "invalidSerialNumber": "Número de serie no válido (debe coincidir con XX1122222)",
     "missingIdentityKey": "Clave de identidad faltante",
     "invalidWiringDiagram": "Diagrama de cableado no válido",
     "powerBoardDriverDisconnected": "Power Board Driver desconectado",
@@ -38,7 +38,8 @@
       "highPressure": "Presión alta detectada",
       "systemEmpty": "El sistema de A/C está vacío",
       "tankFull": "El tanque está lleno"
-    }
+    },
+    "minimumResolution": "La resolución mínima requerida es {{width}}x{{height}}"
   },
   "fields": {
     "gain": "Ganar",
@@ -60,13 +61,14 @@
     "tankPressure": "Presión del tanque",
     "vin": "VIN",
     "acPressure": "Presión del A/C",
-    "evaporatorPressure": "Presión del evaporador"
+    "evaporatorPressure": "Presión del evaporador",
+    "wiringDiagram": "Diagrama de cableado"
   },
   "messages": {
     "valueModified": "Valor modificado",
     "enterCodeToAccessAdvancedSettings": "Ingrese el código para acceder a la configuración avanzada",
-    "connectPipesMessage": "Por favor, conecte y abra ambos acoplamientos HP y LP al sistema de A/C. Abra las válvulas laterales de HP y LP y presione Continuar.",
-    "disconnectPipesMessage": "Por favor, cierre y desconecte las conexiones de HP y LP del sistema de A/C y presione Continuar."
+    "connectDeviceMessage": "Por favor, conecte el dispositivo. Una vez hecho esto, presione Continuar.",
+    "disconnectDeviceMessage": "Por favor desconecte el dispositivo. Una vez hecho esto, presione Continuar."
   },
   "misc": {
     "back": "Atrás",
@@ -215,6 +217,7 @@
     "temperatureSensors": "Sensores de temperatura"
   },
   "units": {
-    "minutes": "minutos"
+    "minutes": "minutos",
+    "seconds": "segundos"
   }
 }

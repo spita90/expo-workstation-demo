@@ -48,7 +48,7 @@ export const TopBar = () => {
         className={`flex flex-row w-full p-3 items-center justify-between border-b-[1px] border-zinc-200 z-10 bg-background`}
         style={{ height: TOP_BAR_HEIGHT }}
       >
-        <View className="flex flex-row gap-2 items-center">
+        <View className="flex-row gap-2 items-center">
           <TextClassContext.Provider value="paragraph-regular-medium">
             <Text>{time}</Text>
             <TopBarSeparator />

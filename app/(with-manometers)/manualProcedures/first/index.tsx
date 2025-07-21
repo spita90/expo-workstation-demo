@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
-export default function RecoveryRecycleScreen() {
+export default function FirstProcedureScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const { errorToast } = useToast();
@@ -17,11 +17,10 @@ export default function RecoveryRecycleScreen() {
 
   const handleVinContinuePress = async () => {
     try {
-      const vin = editingVin.length === 0 ? undefined : editingVin; // to have undefined if empty string
       router.push({
-        pathname: "/manualProcedures/recoveryRecycle/running",
+        pathname: "/manualProcedures/first/running",
         params: {
-          vin: editingVin, // using empty string if empty
+          vin: editingVin,
         },
       });
     } catch (e: any) {

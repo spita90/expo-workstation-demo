@@ -5,22 +5,17 @@ import { UNITS_OF_MEASURE_SYMBOLS } from "@/types";
 import { useLocalSearchParams } from "expo-router";
 import { useShallow } from "zustand/shallow";
 
-export type RecoveryRecycleFinishedScreenProps = {
+export type FirstProcedureFinishedScreenProps = {
   vin: string;
-  oilDischargeElapsedTime: string;
-  totalRecoveryTime: string;
-  recoveredOil: string;
-  recoveredGas: string;
+  innerPhaseElapsedTime: string;
+  totalTime: string;
+  aAmount: string;
+  bAmount: string;
 };
 
-export default function RecoveryRecycleFinishedScreen() {
-  const {
-    vin,
-    oilDischargeElapsedTime,
-    totalRecoveryTime,
-    recoveredOil,
-    recoveredGas,
-  } = useLocalSearchParams<RecoveryRecycleFinishedScreenProps>();
+export default function FirstProcedureFinishedScreen() {
+  const { vin, innerPhaseElapsedTime, totalTime, aAmount, bAmount } =
+    useLocalSearchParams<FirstProcedureFinishedScreenProps>();
   const { userUnitsOfMeasure } = useGlobalStore(
     useShallow((state) => ({
       userUnitsOfMeasure: state.userSettings.unitOfMeasures,
@@ -32,25 +27,25 @@ export default function RecoveryRecycleFinishedScreen() {
       <ProcedureFinishedFragment
         reportData={[
           {
-            fieldKey: "operations.manual_.recoveryRecycle_.oilDischargeTime",
-            value: Number(oilDischargeElapsedTime),
+            fieldKey: "operations.manual_.FirstProcedure_.oilDischargeTime",
+            value: Number(innerPhaseElapsedTime),
             valueType: "duration",
           },
           {
-            fieldKey: "operations.manual_.recoveryRecycle_.recoveryTotalTime",
-            value: Number(totalRecoveryTime),
+            fieldKey: "operations.manual_.FirstProcedure_.recoveryTotalTime",
+            value: Number(totalTime),
             valueType: "duration",
           },
           {
-            fieldKey: "operations.manual_.recoveryRecycle_.recoveredOil",
-            value: `${Number(recoveredOil)} ${
+            fieldKey: "operations.manual_.FirstProcedure_.recoveredOil",
+            value: `${Number(aAmount)} ${
               UNITS_OF_MEASURE_SYMBOLS[userUnitsOfMeasure.volume]
             }`,
             valueType: "label",
           },
           {
-            fieldKey: "operations.manual_.recoveryRecycle_.recoveredGas",
-            value: `${Number(recoveredGas)} ${
+            fieldKey: "operations.manual_.FirstProcedure_.recoveredGas",
+            value: `${Number(bAmount)} ${
               UNITS_OF_MEASURE_SYMBOLS[userUnitsOfMeasure.weight]
             }`,
             valueType: "label",

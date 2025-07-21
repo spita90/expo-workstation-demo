@@ -13,22 +13,22 @@ const MANUAL_OPERATIONS: Operation[] = [
   {
     translationKey: "operations.manual_.recoveryRecycle",
     icon: AutomaticProc,
-    linkTo: "/manualProcedures/recoveryRecycle",
+    linkTo: "/manualProcedures/first",
   },
   {
     translationKey: "operations.manual_.vacuum",
     icon: ManualProc,
-    linkTo: "/manualProcedures/vacuum",
-  },
-  {
-    translationKey: "operations.manual_.oilInjection",
-    icon: Setup,
-    linkTo: "/manualProcedures/oil_injection",
+    linkTo: "/manualProcedures/second",
   },
   {
     translationKey: "operations.manual_.charge",
     icon: Service,
-    linkTo: "/manualProcedures/charge",
+    linkTo: "/manualProcedures/third",
+  },
+  {
+    translationKey: "operations.manual_.oilInjection",
+    icon: Setup,
+    linkTo: "/manualProcedures/fourth",
   },
 ];
 

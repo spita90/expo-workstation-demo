@@ -22,7 +22,7 @@ export const DisconnectDeviceFragment = ({
             {t("misc.instructions")}
           </Text>
           <Text className="paragraph-regular-medium">
-            {t("messages.disconnectPipesMessage")}
+            {t("messages.disconnectDeviceMessage")}
           </Text>
         </View>
         <View className="items-end">

@@ -15,6 +15,4 @@ config.resolver = {
   sourceExts: [...resolver.sourceExts, "svg"],
 };
 
-config.resolver.unstable_enablePackageExports = true;
-
 module.exports = withNativeWind(config, { input: "./global.css" });

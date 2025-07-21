@@ -5,10 +5,7 @@
   "scripts": {
     "start": "expo start",
     "web": "expo start --web",
-    "compile-proto": "./compile-proto.sh",
     "build": "expo export -p web",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
     "test": "jest --watchAll",
     "lint": "expo lint"
   },
@@ -73,7 +70,7 @@
     "tailwindcss-animate": "^1.0.7",
     "victory-native": "^41.16.1",
     "zod": "^3.24.2",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

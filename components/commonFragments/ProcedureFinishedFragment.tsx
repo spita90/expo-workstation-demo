@@ -32,6 +32,7 @@ export const ProcedureFinishedFragment = ({
   };
 
   const handlePrintPress = () => {
+    // TODO implement print
     toast({
       title: "Printing report...",
       description: "This feature is not implemented yet.",

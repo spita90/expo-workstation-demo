@@ -22,7 +22,7 @@ export const ConnectDeviceFragment = ({
             {t("misc.instructions")}
           </Text>
           <Text className="paragraph-regular-medium">
-            {t("messages.connectPipesMessage")}
+            {t("messages.connectDeviceMessage")}
           </Text>
         </View>
         <View className="items-end">

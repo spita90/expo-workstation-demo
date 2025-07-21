@@ -11,9 +11,8 @@ import {
   unitsOfMeasureByType,
 } from "@/lib/utils";
 import { useGlobalStore } from "@/stores/globalStore";
-import { USER_UNITS_OF_MEASURE_STORAGE_KEYS } from "@/stores/slices/appConfigSlice";
+import { UnitOfMeasureSettings } from "@/stores/slices/appConfigSlice";
 import { UNITS_OF_MEASURE_SYMBOLS } from "@/types";
-import { useRouter } from "expo-router";
 import _ from "lodash";
 import { useTranslation } from "react-i18next";
 import { FlatList, View } from "react-native";
@@ -28,7 +27,6 @@ const labelsByType: Record<UnitOfMeasureType, string> = {
 
 export default function UnitsOfMeasureSetupScreen() {
   const { t } = useTranslation();
-  const { dismissTo } = useRouter();
   const { toast } = useToast();
   const { userSettings, setUserSettings } = useGlobalStore(
     useShallow((state) => ({
@@ -38,11 +36,11 @@ export default function UnitsOfMeasureSetupScreen() {
   );
 
   const setUnitOfMeasure = async (
-    unitKey: keyof typeof USER_UNITS_OF_MEASURE_STORAGE_KEYS,
+    unitKey: keyof UnitOfMeasureSettings,
     unitOfMeasure: UnitOfMeasure
   ) => {
     try {
-      setUserSettings(_.set({}, unitKey, unitOfMeasure));
+      setUserSettings(_.set({}, `unitOfMeasures.${unitKey}`, unitOfMeasure));
     } catch (e: any) {
       console.error(e);
       toast({
@@ -82,16 +80,11 @@ export default function UnitsOfMeasureSetupScreen() {
                         variant="glass"
                         state={
                           unitOfMeasure ===
-                          _.get(userSettings, `unitOfMeasures.${unitKey}`)
+                          _.get(userSettings.unitOfMeasures, unitKey)
                             ? "selected"
                             : "unselected"
                         }
-                        onPress={() =>
-                          setUnitOfMeasure(
-                            `unitOfMeasures.${unitKey}`,
-                            unitOfMeasure
-                          )
-                        }
+                        onPress={() => setUnitOfMeasure(unitKey, unitOfMeasure)}
                       >
                         <Text className="paragraph-semibold-large">
                           {UNITS_OF_MEASURE_SYMBOLS[unitOfMeasure]}

@@ -8,7 +8,7 @@ import { t } from "i18next";
 const MAINTENANCE_OPERATIONS: Operation[] = [
   {
     icon: SettingsIconSvg,
-    translationKey: "operations.maintenance_.testIo",
+    translationKey: "operations.maintenance_.advancedSupport_.testio",
     linkTo: "/maintenance/testIo",
   },
 ];

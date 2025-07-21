@@ -22,7 +22,7 @@
     "emptyValue": "Value is empty!",
     "fieldIsRequired": "Field is mandatory",
     "genericError": "Generic error",
-    "invalidSerialNumber": "Invalid Serial Number format (must match XXYYZZZZZ)",
+    "invalidSerialNumber": "Invalid Serial Number format (must match XX1122222)",
     "missingIdentityKey": "Missing Identity Key",
     "invalidWiringDiagram": "Invalid wiring diagram",
     "powerBoardDriverDisconnected": "Power Board Driver disconnected",
@@ -38,7 +38,8 @@
       "highPressure": "High pressure detected",
       "systemEmpty": "A/C system is empty",
       "tankFull": "The tank is full"
-    }
+    },
+    "minimumResolution": "The minimum required resolution is {{width}}x{{height}}"
   },
   "fields": {
     "gain": "Gain",
@@ -60,13 +61,14 @@
     "tankPressure": "Tank pressure",
     "vin": "VIN",
     "acPressure": "A/C pressure",
-    "evaporatorPressure": "Evaporator pressure"
+    "evaporatorPressure": "Evaporator pressure",
+    "wiringDiagram": "Wiring diagram"
   },
   "messages": {
     "valueModified": "Value modified",
     "enterCodeToAccessAdvancedSettings": "Enter the code to access advanced settings",
-    "connectPipesMessage": "Please connect and open both HP and LP coupling to the A/C system. Open HP and LP side valves and press Continue.",
-    "disconnectPipesMessage": "Please close and disconnect HP and LP couplings from A/C system and press Continue."
+    "connectDeviceMessage": "Please connect device. Once done press Continue.",
+    "disconnectDeviceMessage": "Please disconnect device. Once done press Continue."
   },
   "misc": {
     "back": "Back",
@@ -215,6 +217,7 @@
     "temperatureSensors": "Temperature sensors"
   },
   "units": {
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "seconds": "seconds"
   }
 }

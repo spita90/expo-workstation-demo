@@ -20,7 +20,7 @@ export default function AutomaticProceduresScreen() {
           onEnterPress={() =>
             toast({
               title: "info",
-              description: "valueModified",
+              description: "OK!",
               duration: 3000,
             })
           }

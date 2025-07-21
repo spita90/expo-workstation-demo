@@ -25,15 +25,14 @@ import { useShallow } from "zustand/shallow";
 
 const wiringDiagramOptions = Object.entries(WiringDiagram).reduce(
   (acc, [key, value]) => {
-    if (typeof value === "number") {
+    if (isNaN(Number(key)) && value !== WiringDiagram.UNDETERMINED)
       acc.push({
-        value: value.toString(),
+        value: Number(value),
         label: key,
       });
-    }
     return acc;
   },
-  [] as { value: string; label: string }[]
+  [] as { value: WiringDiagram; label: string }[]
 );
 
 const StorageUnitSchema = z.object({
@@ -47,7 +46,8 @@ const StorageUnitSchema = z.object({
   "Wiring Diagram": z
     .string()
     .refine(
-      (val) => wiringDiagramOptions.map(({ value }) => value).includes(val),
+      (val) =>
+        wiringDiagramOptions.map(({ value }) => value).includes(Number(val)),
       {
         message: "errors.invalidWiringDiagram",
       }
@@ -78,7 +78,7 @@ export default function FactorySetupScreen() {
     try {
       setSystemConfig({
         serialNumber: data["Serial Number"].toUpperCase(),
-        wiringDiagram: data["Wiring Diagram"],
+        wiringDiagram: Number(data["Wiring Diagram"]),
       });
       setInitializationType(InitializationType.USER);
     } catch (e: any) {
@@ -94,13 +94,16 @@ export default function FactorySetupScreen() {
         {Object.keys(StorageUnitSchema.shape).map((key, idx) => {
           if (key === "Wiring Diagram") {
             return (
-              <View className="bg-zinc-700 text-white p-4 gap-2 rounded">
+              <View
+                className="bg-zinc-700 text-white p-4 gap-2 rounded"
+                key={key}
+              >
                 <Text className="text-lg font-bold">{key}</Text>
                 <select
                   className="bg-zinc-600 text-white p-2 rounded"
                   {...register(key as keyof StorageUnit)}
                   onChange={(e) =>
-                    setValue(key as keyof StorageUnit, e.target.value as any)
+                    setValue(key as keyof StorageUnit, e.target.value)
                   }
                 >
                   {wiringDiagramOptions.map((diagram) => (
@@ -151,7 +154,15 @@ export default function FactorySetupScreen() {
                 </Button>
               </DialogClose>
               <DialogClose asChild>
-                <Button onPress={handleSubmit(onSubmit)}>
+                <Button
+                  onPress={handleSubmit(onSubmit, (e) =>
+                    errorToast(
+                      e["Serial Number"]?.message ??
+                        e["Wiring Diagram"]?.message ??
+                        t("errors.genericError")
+                    )
+                  )}
+                >
                   <Text>{t("misc.yes")}</Text>
                 </Button>
               </DialogClose>

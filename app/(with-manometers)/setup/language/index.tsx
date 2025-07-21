@@ -1,6 +1,5 @@
 import LanguageSvg from "@/assets/svgs/language.svg";
 import { Page } from "@/components/Page";
-import { QuickSetupBottomBar } from "@/components/setup/QuickSetupBottomBar";
 import { TabItem } from "@/components/TabItem";
 import { SetupIcon } from "@/components/ui/SetupIcon";
 import { Text } from "@/components/ui/text";
@@ -11,15 +10,12 @@ import i18n, {
   LOCALE_RESOURCES,
 } from "@/localizations";
 import { useGlobalStore } from "@/stores/globalStore";
-import { USER_SETTINGS_STORAGE_KEYS } from "@/stores/slices/appConfigSlice";
-import { useRouter } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 import { useShallow } from "zustand/shallow";
 
 export default function LanguageSetupScreen() {
   const { t } = useTranslation();
-  const { dismissTo } = useRouter();
   const { toast } = useToast();
 
   const { userSettings, setUserSettings } = useGlobalStore(

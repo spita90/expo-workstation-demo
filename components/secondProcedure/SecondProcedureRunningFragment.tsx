@@ -15,39 +15,29 @@ const VACUUM_PRESSURE_BAR_MAX = 0.3;
 const VACUUM_PRESSURE_PSI_MIN = -15;
 const VACUUM_PRESSURE_PSI_MAX = 45;
 
-export interface VacuumRunningFragmentProps {
+export interface SecondProcedureRunningFragmentProps {
   label?: string;
-  elapsedTimeMetric?: string;
+  elapsedTime?: number;
+  maxTime?: number;
   showOverlayed?: boolean;
 }
 
-export const VacuumRunningFragment = ({
+export const SecondProcedureRunningFragment = ({
   label,
-  elapsedTimeMetric,
+  elapsedTime,
+  maxTime,
   showOverlayed,
-}: VacuumRunningFragmentProps) => {
+}: SecondProcedureRunningFragmentProps) => {
   const { t } = useTranslation();
-  const {
-    vacuumElapsedMetric,
-    pressureUnitOfMeasure,
-    lowPressureMetric,
-    highPressureMetric,
-  } = useGlobalStore(
-    useShallow((state) => ({
-      vacuumElapsedMetric: elapsedTimeMetric
-        ? state.currentProcedureMetrics[elapsedTimeMetric]
-        : undefined,
-      pressureUnitOfMeasure: state.userSettings.unitOfMeasures.pressure,
-      lowPressureMetric: state.pbdMetrics[LOW_PRESSURE_METRIC],
-      highPressureMetric: state.pbdMetrics[HIGH_PRESSURE_METRIC],
-    }))
-  );
-  const vacuumElapsed = vacuumElapsedMetric
-    ? Number(getMetricValue(vacuumElapsedMetric))
-    : undefined;
-  const vacuumElapsedMax = vacuumElapsedMetric
-    ? Number(getMetricPropertyValue(vacuumElapsedMetric, "max_value"))
-    : undefined;
+  const { pressureUnitOfMeasure, lowPressureMetric, highPressureMetric } =
+    useGlobalStore(
+      useShallow((state) => ({
+        pressureUnitOfMeasure: state.userSettings.unitOfMeasures.pressure,
+        lowPressureMetric: state.pbdMetrics[LOW_PRESSURE_METRIC],
+        highPressureMetric: state.pbdMetrics[HIGH_PRESSURE_METRIC],
+      }))
+    );
+
   const lowPressure = Number(lowPressureMetric?.converted ?? 0);
   const highPressure = Number(highPressureMetric?.converted ?? 0);
 
@@ -71,8 +61,8 @@ export const VacuumRunningFragment = ({
     100;
 
   const timerLabel =
-    vacuumElapsed !== undefined
-      ? getMinutesLabelFromSeconds(vacuumElapsed)
+    elapsedTime !== undefined
+      ? getMinutesLabelFromSeconds(elapsedTime)
       : undefined;
 
   return (
@@ -115,11 +105,11 @@ export const VacuumRunningFragment = ({
         </View>
         <LinearProgressBar
           fillPercentage={
-            vacuumElapsed !== undefined && vacuumElapsedMax
-              ? (vacuumElapsed / vacuumElapsedMax) * 100
+            elapsedTime !== undefined && maxTime
+              ? (elapsedTime / maxTime) * 100
               : 0
           }
-          hidePercentageLabel={vacuumElapsed === undefined}
+          hidePercentageLabel={elapsedTime === undefined}
         />
       </View>
     </View>

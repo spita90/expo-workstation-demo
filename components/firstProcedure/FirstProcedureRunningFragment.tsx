@@ -17,32 +17,31 @@ import { useShallow } from "zustand/shallow";
 import { Chart } from "../Chart";
 import { LinearProgressBar } from "../LinearProgressBar";
 import { Text } from "../ui/text";
+import { FirstProcedureState } from "@/app/(with-manometers)/manualProcedures/first/running";
 
-export interface RecoveryRecycleRunningFragmentProps {}
+export interface FirstProcedureRunningFragmentProps {}
 
-const getDescriptionKeyByState = (
-  procedureState: FSMACRecoveryRecycleStates
-) => {
+const getDescriptionKeyByState = (procedureState: FirstProcedureState) => {
   switch (procedureState) {
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_INITIAL_PRESSURE_CHECK:
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_PRE:
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_PRE:
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING:
-      return "operations.manual_.recoveryRecycle_.firstPhase";
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_DISCHARGE_OIL:
-      return "operations.manual_.recoveryRecycle_.oilDischarge";
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_SECOND_PHASE:
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_VACUUM_ASSIST_PHASE:
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_POST:
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_POST:
-      return "operations.manual_.recoveryRecycle_.secondPhase";
-    case FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING_PAUSE:
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_INITIAL_PRESSURE_CHECK:
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_PRE:
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_PRE:
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING:
+      return "operations.manual_.FirstProcedure_.firstPhase";
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_DISCHARGE_OIL:
+      return "operations.manual_.FirstProcedure_.oilDischarge";
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_SECOND_PHASE:
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_VACUUM_ASSIST_PHASE:
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_POST:
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_POST:
+      return "operations.manual_.FirstProcedure_.secondPhase";
+    case FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING_PAUSE:
       return "misc.paused";
   }
 };
 
-export const RecoveryRecycleRunningFragment =
-  ({}: RecoveryRecycleRunningFragmentProps) => {
+export const FirstProcedureRunningFragment =
+  ({}: FirstProcedureRunningFragmentProps) => {
     const { t } = useTranslation();
     const {
       procedureStateMetric,
@@ -60,7 +59,7 @@ export const RecoveryRecycleRunningFragment =
       }))
     );
     const procedureState = (getMetricValue(procedureStateMetric) ??
-      0) as FSMACRecoveryRecycleStates;
+      0) as FirstProcedureState;
 
     const oilDischargeElapsed = oilDischargeTimerMetric
       ? Number(getMetricValue(oilDischargeTimerMetric))
@@ -77,25 +76,25 @@ export const RecoveryRecycleRunningFragment =
       : undefined;
 
     const isPaused = [
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING_PAUSE,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING_PAUSE,
     ].includes(procedureState);
 
     const isInEVState = [
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_PRE,
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_POST,
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_PRE,
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_POST,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_PRE,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV6_CYCLE_POST,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_PRE,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_EV9_CYCLE_POST,
     ].includes(procedureState);
 
     const isInRunningState = [
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING,
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_SECOND_PHASE,
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_VACUUM_ASSIST_PHASE,
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_FINAL_PHASE,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_RUNNING,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_SECOND_PHASE,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_VACUUM_ASSIST_PHASE,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_FINAL_PHASE,
     ].includes(procedureState);
 
     const isInOilDischargeState = [
-      FSMACRecoveryRecycleStates.FSM_AC_RECOVERY_RECYCLE_STATE_DISCHARGE_OIL,
+      FirstProcedureState.FSM_AC_RECOVERY_RECYCLE_STATE_DISCHARGE_OIL,
     ].includes(procedureState);
 
     const getTimerLabel = () => {
@@ -124,7 +123,7 @@ export const RecoveryRecycleRunningFragment =
                 metricName: RECOVERY_RECYCLE_RECOVERED_GAS_METRIC,
               }}
               bottomRightLabel={t(
-                "operations.manual_.recoveryRecycle_.recoveredGas"
+                "operations.manual_.FirstProcedure_.recoveredGas"
               )}
             />
             {isInEVState && (
@@ -156,7 +155,7 @@ export const RecoveryRecycleRunningFragment =
                   metricName: RECOVERY_RECYCLE_RECOVERED_OIL_METRIC,
                 }}
                 bottomRightLabel={t(
-                  "operations.manual_.recoveryRecycle_.recoveredOil"
+                  "operations.manual_.FirstProcedure_.recoveredOil"
                 )}
                 graphColor={"#A4A319"}
               />

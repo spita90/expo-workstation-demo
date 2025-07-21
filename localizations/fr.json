@@ -22,7 +22,7 @@
     "emptyValue": "La valeur est vide!",
     "fieldIsRequired": "Le champ est obligatoire",
     "genericError": "Erreur générique",
-    "invalidSerialNumber": "Numéro de série non valide (doit correspondre XXYYZZZZZ)",
+    "invalidSerialNumber": "Numéro de série non valide (doit correspondre XX1122222)",
     "missingIdentityKey": "Clé d'identité manquante",
     "invalidWiringDiagram": "Schéma de câblage non valide",
     "powerBoardDriverDisconnected": "Conducteur de la carte électrique déconnecté",
@@ -38,7 +38,8 @@
       "highPressure": "Haute pression détectée",
       "systemEmpty": "Le système de climatisation est vide",
       "tankFull": "Le réservoir est plein"
-    }
+    },
+    "minimumResolution": "La résolution minimale requise est {{width}}x{{height}}"
   },
   "fields": {
     "gain": "Gagner",
@@ -60,13 +61,14 @@
     "tankPressure": "Pression du réservoir",
     "vin": "VIN",
     "acPressure": "Pression A/C",
-    "evaporatorPressure": "Pression de l'évaporateur"
+    "evaporatorPressure": "Pression de l'évaporateur",
+    "wiringDiagram": "Schéma de câblage"
   },
   "messages": {
     "valueModified": "Valeur modifiée",
     "enterCodeToAccessAdvancedSettings": "Entrez le code pour accéder aux paramètres avancés",
-    "connectPipesMessage": "Veuillez connecter et ouvrir à la fois le couplage HP et LP au système de climatisation. Ouvrez les vannes côté HP et LP et appuyez sur Continuer.",
-    "disconnectPipesMessage": "Veuillez fermer et déconnecter les accouplements HP et LP du système de climatisation et appuyez sur Continuer."
+    "connectDeviceMessage": "Veuillez connecter l'appareil. Une fois fait, appuyez sur Continuer.",
+    "disconnectDeviceMessage": "Veuillez déconnecter l'appareil. Une fois fait, appuyez sur Continuer."
   },
   "misc": {
     "back": "Dos",
@@ -215,6 +217,7 @@
     "temperatureSensors": "Capteurs de température"
   },
   "units": {
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "seconds": "secondes"
   }
 }

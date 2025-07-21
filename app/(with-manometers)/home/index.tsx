@@ -26,11 +26,6 @@ const OPERATIONS: Operation[] = [
     linkTo: "/setup",
   },
   {
-    translationKey: "operations.services",
-    icon: Service,
-    linkTo: "/services",
-  },
-  {
     translationKey: "operations.maintenance",
     icon: Maintenance,
     linkTo: "/maintenance",
