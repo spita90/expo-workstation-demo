@@ -2,7 +2,8 @@ import {
   FIRST_PROCEDURE_INNER_PHASE_TIME_MAX_SEC,
   FIRST_PROCEDURE_TOTAL_TIME_MAX_SEC,
   FirstProcedureState,
-} from "@/app/(with-manometers)/manualProcedures/first/running";
+} from "@/app/(with-side-indicators)/manualProcedures/first/running";
+import { TEMPERATURE_METRIC } from "@/lib/constants";
 import { cn, getMinutesLabelFromSeconds } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
@@ -96,10 +97,10 @@ export const FirstProcedureRunningFragment = ({
             bottomRightLabel={t("fields.tankPressure")}
           />
           <Chart
-            // metric={{
-            //   metricName: TANK_TEMPERATURE_METRIC,
-            //   chartValueType: "converted",
-            // }}
+            metric={{
+              metricName: TEMPERATURE_METRIC,
+              chartValueType: "converted",
+            }}
             bottomRightLabel={t("fields.tankTemperature")}
           />
         </View>

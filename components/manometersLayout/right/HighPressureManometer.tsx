@@ -1,6 +1,10 @@
 import { Text, TextClassContext } from "@/components/ui/text";
 import {
   HIGH_PRESSURE_METRIC,
+  HP_MANOMETER_BAR_MAX,
+  HP_MANOMETER_BAR_MIN,
+  HP_MANOMETER_PSI_MAX,
+  HP_MANOMETER_PSI_MIN,
   MANOMETER_MOTION_TRANSITION,
 } from "@/lib/constants";
 import { getManometerHeight, UnitOfMeasure } from "@/lib/utils";
@@ -8,11 +12,6 @@ import { useGlobalStore } from "@/stores/globalStore";
 import { clamp } from "lodash";
 import { motion } from "motion/react";
 import { useShallow } from "zustand/shallow";
-
-export const HP_MANOMETER_PSI_MIN = -30;
-export const HP_MANOMETER_PSI_MAX = 900;
-export const HP_MANOMETER_BAR_MIN = -1;
-export const HP_MANOMETER_BAR_MAX = 70;
 
 export const HighPressureManometer = () => {
   const { pressureUnitOfMeasure, pressureMetric } = useGlobalStore(

@@ -33,6 +33,7 @@ export enum UnitOfMeasure {
   MILLILITERS,
   FL_OUNCE,
   FL_OUNCE_USCS,
+  PERCENTAGE,
 }
 
 export const getUnitOfMeasureType = (

@@ -27,18 +27,10 @@ export default function InfoScreen() {
 
   const leftLabelValues = [
     { label: t("fields.software"), value: systemConfig.serialNumber },
-    {
-      label: t("fields.wiringDiagram"),
-      value: systemConfig.wiringDiagram.toString(),
-    },
   ];
 
   const rightLabelValues = [
     { label: t("fields.software"), value: systemConfig.serialNumber },
-    {
-      label: t("fields.wiringDiagram"),
-      value: systemConfig.wiringDiagram.toString(),
-    },
   ];
 
   return (

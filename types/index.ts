@@ -15,14 +15,6 @@ export const UNITS_OF_MEASURE_SYMBOLS: Partial<Record<UnitOfMeasure, string>> =
     [UnitOfMeasure.FL_OUNCE]: "fl. oz",
   };
 
-export enum WiringDiagram {
-  UNDETERMINED = 0,
-  TYPE_1 = 1,
-  TYPE_2 = 2,
-  TYPE_3 = 3,
-  TYPE_4 = 4,
-}
-
 export enum Peripheral {
   EV_01 = 1,
   EV_02 = 2,

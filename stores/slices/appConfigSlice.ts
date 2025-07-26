@@ -1,12 +1,10 @@
 import { UnitOfMeasure } from "@/lib/utils";
 import { FALLBACK_LANGUAGE } from "@/localizations";
-import { WiringDiagram } from "@/types";
 import _ from "lodash";
 import { StateCreator } from "zustand";
 
 export enum InitializationType {
   INITIALIZING = "INITIALIZING",
-  FIRST_INIT = "FIRST_INIT",
   USER = "USER",
 }
 
@@ -19,7 +17,6 @@ export type UnitOfMeasureSettings = {
 
 export type SystemConfig = {
   serialNumber: string;
-  wiringDiagram: WiringDiagram;
 };
 
 export type UserSettings = {
@@ -56,7 +53,6 @@ const initialState: AppConfigState = {
   },
   systemConfig: {
     serialNumber: "",
-    wiringDiagram: WiringDiagram.UNDETERMINED,
   },
   wifiConnected: false,
 };

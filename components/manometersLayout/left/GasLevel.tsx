@@ -1,22 +1,17 @@
-import {
-  MANOMETER_MOTION_TRANSITION,
-  TANK_LOAD_CELL_METRIC,
-} from "@/lib/constants";
+import { MANOMETER_MOTION_TRANSITION, LOAD_METRIC } from "@/lib/constants";
 import { useGlobalStore } from "@/stores/globalStore";
 import { clamp } from "lodash";
 import { motion } from "motion/react";
 import { useShallow } from "zustand/shallow";
 
 export const GasLevel = () => {
-  const { loadCellMaxCapacityGrams, tankMetric } = useGlobalStore(
+  const { loadMetric } = useGlobalStore(
     useShallow((state) => ({
-      loadCellMaxCapacityGrams: state.systemConfig.loadCellTankMaxCapacityGrams,
-      tankMetric: state.pbdMetrics[TANK_LOAD_CELL_METRIC],
+      loadMetric: state.pbdMetrics[LOAD_METRIC],
     }))
   );
-  const tankValue = Number(tankMetric?.raw ?? 0); // is always in grams
-  const tankFillPercentage = (tankValue / loadCellMaxCapacityGrams) * 100;
-  const gasHeight = (clamp(tankFillPercentage, 0, 100) / 100) * 194; // no need to interpolate using getManometerHeight since it's a linear scale
+  const loadValue = Number(loadMetric?.raw ?? 0); // is in percentage
+  const gasHeight = (clamp(loadValue, 0, 100) / 100) * 194; // no need to interpolate using getManometerHeight since it's a linear scale
 
   return (
     <svg

@@ -158,13 +158,18 @@
           },
           "testRun": "Essai",
           "runs": {
-            "firstProcedure": "Récupération",
+            "firstProcedure": "Première procédure",
             "firstProcedureDischarge": "Récupération, décharge d'huile",
             "vacuum": "Vide",
             "pagOilInjection": "Injection d'huile de PAG",
             "poeOilInjection": "Injection d'huile de POE",
             "dyeOilInjection": "Injection d'huile DYE",
-            "charge": "Charge"
+            "charge": "Charge",
+            "secondProcedure": "Deuxième procédure",
+            "thirdProcedure": "Troisième procédure",
+            "fourthProcedure": "Quatrième procédure",
+            "fifthProcedure": "Cinquième procédure",
+            "sixthProcedure": "Sixième procédure"
           },
           "actuatorPressButRunningProcedure": "Pour basculer cet actionneur, vous devez d'abord arrêter la procédure.",
           "testRunPressButActiveActuators": "Pour démarrer un essai, vous devez d'abord désactiver tous les actionneurs"

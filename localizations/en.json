@@ -158,13 +158,18 @@
           },
           "testRun": "Test run",
           "runs": {
-            "firstProcedure": "FirstProcedure",
+            "firstProcedure": "First procedure",
             "firstProcedureDischarge": "FirstProcedure, oil discharge",
             "vacuum": "SecondProcedure",
             "pagOilInjection": "PAG oil injection",
             "poeOilInjection": "POE oil injection",
             "dyeOilInjection": "DYE oil injection",
-            "charge": "Charge"
+            "charge": "Charge",
+            "secondProcedure": "Second procedure",
+            "thirdProcedure": "Third procedure",
+            "fourthProcedure": "Fourth procedure",
+            "fifthProcedure": "Fifth procedure",
+            "sixthProcedure": "Sixth procedure"
           },
           "actuatorPressButRunningProcedure": "To toggle this actuator you must stop the procedure first.",
           "testRunPressButActiveActuators": "To start a test run you must disable all actuators first"

@@ -158,13 +158,18 @@
           },
           "testRun": "Prueba",
           "runs": {
-            "firstProcedure": "Recuperación",
+            "firstProcedure": "Primer procedimiento",
             "firstProcedureDischarge": "Recuperación, descarga de aceite",
             "vacuum": "Vacío",
             "pagOilInjection": "Inyección de aceite de PAG",
             "poeOilInjection": "Inyección de aceite de POE",
             "dyeOilInjection": "Inyección de aceite DYE",
-            "charge": "Cargar"
+            "charge": "Cargar",
+            "secondProcedure": "Segundo procedimiento",
+            "thirdProcedure": "Tercer procedimiento",
+            "fourthProcedure": "Cuarto procedimiento",
+            "fifthProcedure": "Quinto procedimiento",
+            "sixthProcedure": "Sexto procedimiento"
           },
           "actuatorPressButRunningProcedure": "Para alternar este actuador, primero debe detener el procedimiento.",
           "testRunPressButActiveActuators": "Para comenzar una prueba de ejecución, primero debe deshabilitar a todos los actuadores"

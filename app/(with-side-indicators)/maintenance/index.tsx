@@ -17,14 +17,13 @@ import { Separator } from "@/components/ui/separator";
 import { Text } from "@/components/ui/text";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
-import { useGlobalStore } from "@/stores/globalStore";
-import { Peripheral, WiringDiagram } from "@/types";
+import { Peripheral } from "@/types";
 import { useRouter } from "expo-router";
+import { t } from "i18next";
 import { PlayIcon, SquareIcon, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DimensionValue, FlatList, Pressable, View } from "react-native";
-import { useShallow } from "zustand/shallow";
 
 type ActuatorView = {
   icon: ActuatorButtonIconType;
@@ -38,12 +37,11 @@ type ActuatorView = {
 
 type TestRunCode =
   | "firstProcedure"
-  // | "firstProcedureDischarge"
   | "secondProcedure"
-  | "pagOilInjection"
-  | "poeOilInjection"
-  | "dyeOilInjection"
-  | "charge";
+  | "thirdProcedure"
+  | "fourthProcedure"
+  | "fifthProcedure"
+  | "sixthProcedure";
 
 const actuatorButtonsMap: Partial<Record<Peripheral, ActuatorView>> = {
   [Peripheral.EV_01]: {
@@ -144,7 +142,7 @@ const actuatorButtonsMap: Partial<Record<Peripheral, ActuatorView>> = {
   },
 };
 
-const commonActuators: Peripheral[] = [
+const actuators: Peripheral[] = [
   Peripheral.COMPRESSOR,
   Peripheral.CONDENSER_FAN,
   Peripheral.VACUUM_PUMP,
@@ -160,41 +158,21 @@ const commonActuators: Peripheral[] = [
   Peripheral.EV_09,
   Peripheral.EV_10,
   Peripheral.EV_18,
+  Peripheral.EV_11,
+  Peripheral.EV_12,
+  Peripheral.EV_13,
+  Peripheral.EV_14,
+  Peripheral.EV_15,
+  Peripheral.EV_19,
+  Peripheral.EV_20,
+  Peripheral.EV_21,
+  Peripheral.EV_22,
 ];
-
-const wiringDiagramMap: Partial<Record<WiringDiagram, Peripheral[]>> = {
-  [WiringDiagram.TYPE_1]: [...commonActuators, Peripheral.EV_12],
-  [WiringDiagram.TYPE_2]: [
-    ...commonActuators,
-    Peripheral.EV_12,
-    Peripheral.EV_13,
-    Peripheral.EV_14,
-    Peripheral.EV_20,
-    Peripheral.EV_21,
-    Peripheral.EV_22,
-  ],
-  [WiringDiagram.TYPE_3]: [
-    ...commonActuators,
-    Peripheral.EV_11,
-    Peripheral.EV_15,
-    Peripheral.EV_19,
-  ],
-  [WiringDiagram.TYPE_4]: [
-    ...commonActuators,
-    Peripheral.EV_11,
-    Peripheral.EV_15,
-    Peripheral.EV_19,
-    Peripheral.EV_20,
-    Peripheral.EV_21,
-    Peripheral.EV_22,
-  ],
-};
 
 type TestRun = {
   code: TestRunCode;
   nameKey: string;
   actuators: Peripheral[];
-  unavailableForWiringDiagrams?: WiringDiagram[];
 };
 
 const testRuns: TestRun[] = [
@@ -209,14 +187,7 @@ const testRuns: TestRun[] = [
       Peripheral.EV_15,
       Peripheral.COMPRESSOR,
     ],
-    unavailableForWiringDiagrams: [WiringDiagram.TYPE_1, WiringDiagram.TYPE_2],
   },
-  // {
-  //   code: "firstProcedureDischarge",
-  //   nameKey:
-  //     "operations.maintenance_.advancedSupport_.testIo_.runs.firstProcedureDischarge",
-  //   actuators: [Peripheral.EV_05, Peripheral.EV_06, Peripheral.EV_07],
-  // },
   {
     code: "secondProcedure",
     nameKey:
@@ -229,37 +200,27 @@ const testRuns: TestRun[] = [
     ],
   },
   {
-    code: "pagOilInjection",
+    code: "thirdProcedure",
     nameKey:
-      "operations.maintenance_.advancedSupport_.testIo_.runs.pagOilInjection",
+      "operations.maintenance_.advancedSupport_.testIo_.runs.thirdProcedure",
     actuators: [Peripheral.EV_01, Peripheral.EV_02, Peripheral.EV_12],
-    unavailableForWiringDiagrams: [WiringDiagram.TYPE_3, WiringDiagram.TYPE_4],
   },
   {
-    code: "poeOilInjection",
+    code: "fourthProcedure",
     nameKey:
-      "operations.maintenance_.advancedSupport_.testIo_.runs.poeOilInjection",
+      "operations.maintenance_.advancedSupport_.testIo_.runs.fourthProcedure",
     actuators: [Peripheral.EV_01, Peripheral.EV_02, Peripheral.EV_13],
-    unavailableForWiringDiagrams: [
-      WiringDiagram.TYPE_1,
-      WiringDiagram.TYPE_3,
-      WiringDiagram.TYPE_4,
-    ],
   },
   {
-    code: "dyeOilInjection",
+    code: "fifthProcedure",
     nameKey:
-      "operations.maintenance_.advancedSupport_.testIo_.runs.dyeOilInjection",
+      "operations.maintenance_.advancedSupport_.testIo_.runs.fifthProcedure",
     actuators: [Peripheral.EV_01, Peripheral.EV_02, Peripheral.EV_14],
-    unavailableForWiringDiagrams: [
-      WiringDiagram.TYPE_1,
-      WiringDiagram.TYPE_3,
-      WiringDiagram.TYPE_4,
-    ],
   },
   {
-    code: "charge",
-    nameKey: "operations.maintenance_.advancedSupport_.testIo_.runs.charge",
+    code: "sixthProcedure",
+    nameKey:
+      "operations.maintenance_.advancedSupport_.testIo_.runs.sixthProcedure",
     actuators: [Peripheral.EV_01, Peripheral.EV_02, Peripheral.EV_08],
   },
 ];
@@ -288,19 +249,6 @@ export default function TestIOScreen() {
   const { t } = useTranslation();
   const { back } = useRouter();
   const { errorToast } = useToast();
-  const { setError, wiringDiagram, userUnitOfMeasures } = useGlobalStore(
-    useShallow((state) => ({
-      setError: state.setError,
-      wiringDiagram: state.systemConfig.wiringDiagram,
-      userUnitOfMeasures: state.userSettings.unitOfMeasures,
-    }))
-  );
-
-  const availableTestRuns = testRuns.filter(
-    (testRun) =>
-      !testRun.unavailableForWiringDiagrams ||
-      !testRun.unavailableForWiringDiagrams.includes(wiringDiagram)
-  );
 
   const [testRunModalOpen, setTestRunModalOpen] = useState<boolean>(false);
   const [warningModalOpenReason, setWarningModalOpenReason] = useState<
@@ -310,12 +258,6 @@ export default function TestIOScreen() {
   const [runningTestRunCode, setRunningTestRunCode] = useState<
     TestRunCode | undefined
   >(undefined);
-
-  useEffect(() => {
-    if (!wiringDiagram) {
-      setError(new Error("Wiring diagram not found"));
-    }
-  }, [wiringDiagram, setError]);
 
   const turnOffAllActuators = async () => {
     setActiveActuators([]);
@@ -389,10 +331,9 @@ export default function TestIOScreen() {
     }
   };
 
-  if (!wiringDiagram) return null;
   return (
     <Page
-      title={t("operationTitles.testIO")}
+      title={t("operationTitles.maintenance")}
       border="popOver"
       onBackButtonPress={handleBackPress}
     >
@@ -411,7 +352,7 @@ export default function TestIOScreen() {
             }}
           />
           {/* actuators */}
-          {wiringDiagramMap[wiringDiagram]?.map((actuator) => {
+          {actuators.map((actuator) => {
             const actuatorView = actuatorButtonsMap[actuator];
             if (!actuatorView) return null;
             return (
@@ -491,29 +432,23 @@ export default function TestIOScreen() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {[WiringDiagram.TYPE_3, WiringDiagram.TYPE_4].includes(
-              wiringDiagram
-            ) && (
-              // analyzer
-              <>
-                <path
-                  d="M584.5 48.0996H467M584.5 48.0996V31M584.5 48.0996H599.5"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <rect
-                  opacity="0.5"
-                  x="445.5"
-                  y="39.5"
-                  width="32"
-                  height="18"
-                  rx="1"
-                  fill="#3B82F6"
-                />
-              </>
-            )}
+            {/* analyzer */}
+            <path
+              d="M584.5 48.0996H467M584.5 48.0996V31M584.5 48.0996H599.5"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <rect
+              opacity="0.5"
+              x="445.5"
+              y="39.5"
+              width="32"
+              height="18"
+              rx="1"
+              fill="#3B82F6"
+            />
             <path
               d="M545.5 48.0996H584.5V31"
               stroke="#3B82F6"
@@ -823,54 +758,44 @@ export default function TestIOScreen() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {[WiringDiagram.TYPE_2, WiringDiagram.TYPE_1].includes(
-              wiringDiagram
-            ) && (
-              // PAG oil tank
-              <>
-                <path
-                  d="M145.21 199.86H57.9199V204.68"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  opacity="0.5"
-                  d="M59 193.03C64.24 193.03 68.5 197.54 68.5 203.09V226.03H49.5V203.09C49.5 197.54 53.76 193.03 59 193.03Z"
-                  fill="#3B82F6"
-                />
-              </>
-            )}
-            {[WiringDiagram.TYPE_2].includes(wiringDiagram) && (
-              // POE and DYE oil tanks
-              <>
-                <path
-                  d="M145.29 241.87H57.9902V246.69"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M145.29 277.61H57.9902V282.43"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  opacity="0.5"
-                  d="M59 267.03C64.24 267.03 68.5 271.54 68.5 277.09V300.03H49.5V277.09C49.5 271.54 53.76 267.03 59 267.03Z"
-                  fill="#3B82F6"
-                />
-                <path
-                  opacity="0.5"
-                  d="M59 230.03C64.24 230.03 68.5 234.54 68.5 240.09V263.03H49.5V240.09C49.5 234.54 53.76 230.03 59 230.03Z"
-                  fill="#3B82F6"
-                />
-              </>
-            )}
+            {/* PAG oil tank */}
+            <path
+              d="M145.21 199.86H57.9199V204.68"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              opacity="0.5"
+              d="M59 193.03C64.24 193.03 68.5 197.54 68.5 203.09V226.03H49.5V203.09C49.5 197.54 53.76 193.03 59 193.03Z"
+              fill="#3B82F6"
+            />
+            {/* POE and DYE oil tanks */}
+            <path
+              d="M145.29 241.87H57.9902V246.69"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M145.29 277.61H57.9902V282.43"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              opacity="0.5"
+              d="M59 267.03C64.24 267.03 68.5 271.54 68.5 277.09V300.03H49.5V277.09C49.5 271.54 53.76 267.03 59 267.03Z"
+              fill="#3B82F6"
+            />
+            <path
+              opacity="0.5"
+              d="M59 230.03C64.24 230.03 68.5 234.54 68.5 240.09V263.03H49.5V240.09C49.5 234.54 53.76 230.03 59 230.03Z"
+              fill="#3B82F6"
+            />
             <path
               opacity="0.5"
               d="M559 228.03C565.35 228.03 570.5 232.95 570.5 239.01V264.03H547.5V239.01C547.5 232.95 552.65 228.03 559 228.03Z"
@@ -905,41 +830,35 @@ export default function TestIOScreen() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {[WiringDiagram.TYPE_3, WiringDiagram.TYPE_4].includes(
-              wiringDiagram
-            ) && (
-              // hoses flushing
-              <>
-                <path
-                  d="M190.83 293.53V339.1H144.62"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M114.51 321.23H144.34V356.76H114.95"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M106.23 315.92H114.25V326.19H106.23"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M106.23 351.34H114.25V361.61H106.23"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </>
-            )}
+            {/* hoses flushing */}
+            <path
+              d="M190.83 293.53V339.1H144.62"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M114.51 321.23H144.34V356.76H114.95"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M106.23 315.92H114.25V326.19H106.23"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M106.23 351.34H114.25V361.61H106.23"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
             <path
               opacity="0.5"
               d="M418.65 92.21H446.39C448.13 92.21 449.54 93.79 449.54 95.73V159.02H415.5V95.73C415.5 93.79 416.91 92.21 418.65 92.21Z"
@@ -957,34 +876,28 @@ export default function TestIOScreen() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {[WiringDiagram.TYPE_2, WiringDiagram.TYPE_4].includes(
-              wiringDiagram
-            ) && (
-              // nitrogen
-              <>
-                <path
-                  d="M143.37 74.3203V148.64H182.72"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M142.29 126.33H59.54"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M183.5 143.03H189.5V154.03H183.5"
-                  stroke="#3B82F6"
-                  strokeWidth="1.42"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </>
-            )}
+            {/* nitrogen */}
+            <path
+              d="M143.37 74.3203V148.64H182.72"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M142.29 126.33H59.54"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M183.5 143.03H189.5V154.03H183.5"
+              stroke="#3B82F6"
+              strokeWidth="1.42"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
             <path
               d="M322.04 165.71H328.04V176.71H322.04"
               stroke="#3B82F6"
@@ -993,7 +906,7 @@ export default function TestIOScreen() {
               strokeLinejoin="round"
             />
             {/* active paths */}
-            {runningTestRunCode === "charge" && (
+            {runningTestRunCode === "sixthProcedure" && (
               <path
                 d="M289.5 305V293.5H146V200.5H227V52H202M202 52V31H102M202 52V73.5H102"
                 stroke="#FF3B30"
@@ -1053,7 +966,7 @@ export default function TestIOScreen() {
                 />
               </path>
             )}
-            {runningTestRunCode === "poeOilInjection" && (
+            {runningTestRunCode === "fourthProcedure" && (
               <path
                 d="M58 283V277H145V199.5H227V51.5H202.5M202.5 51.5V31H98.5M202.5 51.5V73H98.5"
                 stroke="#FFCC00"
@@ -1073,7 +986,7 @@ export default function TestIOScreen() {
                 />
               </path>
             )}
-            {runningTestRunCode === "dyeOilInjection" && (
+            {runningTestRunCode === "fifthProcedure" && (
               <path
                 d="M58 247V241H145V199.5H227V51.5H202.5M202.5 51.5V31H98.5M202.5 51.5V73H98.5"
                 stroke="#FFCC00"
@@ -1093,7 +1006,7 @@ export default function TestIOScreen() {
                 />
               </path>
             )}
-            {runningTestRunCode === "pagOilInjection" && (
+            {runningTestRunCode === "thirdProcedure" && (
               <path
                 d="M58 205V199H145L227 198.5V51.5H202.5M202.5 51.5V31H98.5M202.5 51.5V73H98.5"
                 stroke="#FFCC00"
@@ -1120,7 +1033,7 @@ export default function TestIOScreen() {
               <View className="bg-background p-2 rounded">
                 <FlatList
                   className="rounded"
-                  data={availableTestRuns}
+                  data={testRuns}
                   renderItem={({ item: testRun, index }) => (
                     <Pressable
                       key={index}

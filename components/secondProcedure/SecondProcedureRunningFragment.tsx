@@ -1,3 +1,4 @@
+import { HIGH_PRESSURE_METRIC, LOW_PRESSURE_METRIC } from "@/lib/constants";
 import { cn, getMinutesLabelFromSeconds, UnitOfMeasure } from "@/lib/utils";
 import { useGlobalStore } from "@/stores/globalStore";
 import { UNITS_OF_MEASURE_SYMBOLS } from "@/types";
@@ -11,9 +12,9 @@ import { SemicircleGauge } from "../SemicircleGauge";
 import { Text } from "../ui/text";
 
 const VACUUM_PRESSURE_BAR_MIN = -1;
-const VACUUM_PRESSURE_BAR_MAX = 0.3;
+const VACUUM_PRESSURE_BAR_MAX = 50;
 const VACUUM_PRESSURE_PSI_MIN = -15;
-const VACUUM_PRESSURE_PSI_MAX = 45;
+const VACUUM_PRESSURE_PSI_MAX = 725;
 
 export interface SecondProcedureRunningFragmentProps {
   label?: string;

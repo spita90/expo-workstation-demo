@@ -1,11 +1,11 @@
 import { Text, TextClassContext } from "@/components/ui/text";
 import {
   MANOMETER_MOTION_TRANSITION,
-  TANK_MANOMETER_BAR_MAX,
-  TANK_MANOMETER_BAR_MIN,
-  TANK_MANOMETER_PSI_MAX,
-  TANK_MANOMETER_PSI_MIN,
-  TANK_PRESSURE_METRIC,
+  OTHER_MANOMETER_BAR_MAX,
+  OTHER_MANOMETER_BAR_MIN,
+  OTHER_MANOMETER_PSI_MAX,
+  OTHER_MANOMETER_PSI_MIN,
+  OTHER_PRESSURE_METRIC,
 } from "@/lib/constants";
 import { UnitOfMeasure } from "@/lib/utils";
 import { useGlobalStore } from "@/stores/globalStore";
@@ -18,7 +18,7 @@ export const TankLevel = () => {
   const { pressureUnitOfMeasure, pressureMetric } = useGlobalStore(
     useShallow((state) => ({
       pressureUnitOfMeasure: state.userSettings.unitOfMeasures.pressure,
-      pressureMetric: state.pbdMetrics[TANK_PRESSURE_METRIC],
+      pressureMetric: state.pbdMetrics[OTHER_PRESSURE_METRIC],
     }))
   );
   const pressure = Number(pressureMetric?.converted ?? 0);
@@ -30,10 +30,10 @@ export const TankLevel = () => {
   const tankPressureHeight =
     (clamp(
       pressure,
-      isPsi ? TANK_MANOMETER_PSI_MIN : TANK_MANOMETER_BAR_MIN,
-      isPsi ? TANK_MANOMETER_PSI_MAX : TANK_MANOMETER_BAR_MAX
+      isPsi ? OTHER_MANOMETER_PSI_MIN : OTHER_MANOMETER_BAR_MIN,
+      isPsi ? OTHER_MANOMETER_PSI_MAX : OTHER_MANOMETER_BAR_MAX
     ) /
-      (isPsi ? TANK_MANOMETER_PSI_MAX : TANK_MANOMETER_BAR_MAX)) *
+      (isPsi ? OTHER_MANOMETER_PSI_MAX : OTHER_MANOMETER_BAR_MAX)) *
     194; // no need to interpolate using getManometerHeight since it's a linear scale
 
   return (
@@ -42,28 +42,28 @@ export const TankLevel = () => {
         {!isPsi && (
           <>
             <Text className="-bottom-[2%] right-[90%]">
-              {TANK_MANOMETER_BAR_MIN}
+              {OTHER_MANOMETER_BAR_MIN}
             </Text>
             <Text className="bottom-[16%] right-[80%]">5</Text>
             <Text className="bottom-[35%] right-[68%]">10</Text>
             <Text className="bottom-[54%] right-[59%]">15</Text>
             <Text className="bottom-[72%] right-[48%]">20</Text>
             <Text className="bottom-[90%] right-[39%]">
-              {TANK_MANOMETER_BAR_MAX}
+              {OTHER_MANOMETER_BAR_MAX}
             </Text>
           </>
         )}
         {isPsi && (
           <>
             <Text className="-bottom-[2%] right-[90%]">
-              {TANK_MANOMETER_PSI_MIN}
+              {OTHER_MANOMETER_PSI_MIN}
             </Text>
             <Text className="bottom-[16%] right-[79%]">70</Text>
             <Text className="bottom-[35%] right-[68%]">145</Text>
             <Text className="bottom-[54%] right-[58%]">215</Text>
             <Text className="bottom-[72%] right-[48%]">290</Text>
             <Text className="bottom-[90%] right-[38%]">
-              {TANK_MANOMETER_PSI_MAX}
+              {OTHER_MANOMETER_PSI_MAX}
             </Text>
           </>
         )}

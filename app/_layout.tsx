@@ -9,8 +9,8 @@ import { View } from "react-native";
 import "react-native-reanimated";
 import { useShallow } from "zustand/shallow";
 import "../global.css";
-import { WiringDiagram } from "@/types";
 import { useTranslation } from "react-i18next";
+import { metricsEmulator } from "@/lib/metricsEmulator";
 
 const MIN_WIDTH = 1280;
 const MIN_HEIGHT = 800;
@@ -18,15 +18,13 @@ const MIN_HEIGHT = 800;
 export default function RootLayout() {
   const [isValidSize, setIsValidSize] = useState(true);
   const { t } = useTranslation();
-  const { wiringDiagram, initializationType, setInitializationType, error } =
-    useGlobalStore(
-      useShallow((state) => ({
-        wiringDiagram: state.systemConfig.wiringDiagram,
-        initializationType: state.initializationType,
-        setInitializationType: state.setInitializationType,
-        error: state.error,
-      }))
-    );
+  const { initializationType, setInitializationType, error } = useGlobalStore(
+    useShallow((state) => ({
+      initializationType: state.initializationType,
+      setInitializationType: state.setInitializationType,
+      error: state.error,
+    }))
+  );
   const [fontsLoaded] = useFonts({
     Roboto: require("@/assets/fonts/Roboto-Variable.ttf"),
     Agdasima: require("@/assets/fonts/Agdasima-Regular.ttf"),
@@ -47,21 +45,17 @@ export default function RootLayout() {
     }
     if (initializationType === InitializationType.INITIALIZING) {
       setTimeout(() => {
-        if (wiringDiagram === WiringDiagram.UNDETERMINED)
-          setInitializationType(InitializationType.FIRST_INIT);
-        else setInitializationType(InitializationType.USER);
+        // fake initilization delay
+        setInitializationType(InitializationType.USER);
       }, 2000);
     }
     if (!appIsReady) return;
-    if (initializationType === InitializationType.FIRST_INIT) {
-      router.replace("/factorySetup");
-      return;
-    }
     if (initializationType === InitializationType.USER) {
+      const clearInterval = metricsEmulator();
       router.replace("/home");
-      return;
+      return () => clearInterval();
     }
-  }, [wiringDiagram, appIsReady, initializationType, error, isValidSize]);
+  }, [appIsReady, initializationType, error, isValidSize]);
 
   useEffect(() => {
     const checkSize = () => {
