@@ -1,0 +1,30 @@
+{
+  "name": "expo-workstation-demo",
+  "slug": "expo-workstation-demo",
+  "version": "1.0.0",
+  "orientation": "landscape",
+  "icon": "./assets/images/favicon.png",
+  "scheme": "myapp",
+  "userInterfaceStyle": "automatic",
+  "newArchEnabled": true,
+  "web": {
+    "bundler": "metro",
+    "output": "single",
+    "favicon": "./assets/images/favicon.png"
+  },
+  "plugins": [
+    "expo-router",
+    "expo-localization",
+    [
+      "expo-video",
+      {
+        "supportsBackgroundPlayback": true,
+        "supportsPictureInPicture": true
+      }
+    ]
+  ],
+  "experiments": {
+    "typedRoutes": true
+  },
+  "sdkVersion": "52.0.0"
+}

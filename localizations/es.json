@@ -1,0 +1,135 @@
+{
+  "buttons": {
+    "close": "Cerca",
+    "confirm": "Confirmar",
+    "enter": "Ingresar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "finish": "Finalizar",
+    "ok": "OK",
+    "goToHomepage": "Ir a la página de inicio",
+    "print": "Imprimir"
+  },
+  "errors": {
+    "emptyValue": "¡El valor está vacío!",
+    "fieldIsRequired": "El campo es obligatorio",
+    "genericError": "Error genérico",
+    "minimumResolution": "La resolución mínima requerida es {{width}}x{{height}}"
+  },
+  "fields": {
+    "gain": "Ganar",
+    "language": "Idioma",
+    "offset": "Compensar",
+    "pressure": "Presión",
+    "tare": "Tara",
+    "temperature": "Temperatura",
+    "unitsOfMeasure": "Unidades de medida",
+    "volume": "Volumen",
+    "weight": "Peso",
+    "software": "Software",
+    "serialNumber": "Número de serie",
+    "license": "Licencia",
+    "dbVersion": "Versión de la base de datos",
+    "activationCode": "Código de activación",
+    "vin": "VIN",
+    "maxPressure": "Presión máxima"
+  },
+  "messages": {
+    "valueModified": "Valor modificado",
+    "connectDeviceMessage": "Por favor, conecte el dispositivo. Una vez hecho esto, presione Continuar.",
+    "disconnectDeviceMessage": "Por favor desconecte el dispositivo. Una vez hecho esto, presione Continuar."
+  },
+  "misc": {
+    "back": "Atrás",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "converted": "Convertido",
+    "error": "Error",
+    "info": "Información",
+    "raw": "Crudo",
+    "set": "Colocar",
+    "warning": "Advertencia",
+    "yes": "Sí",
+    "stop": "Detener",
+    "processed": "Procesado",
+    "insertVin": "Inserte VIN",
+    "instructions": "Instrucciones",
+    "continue": "Continuar",
+    "skipAndContinue": "Omitir y Continuar",
+    "startup": "Puesta en marcha",
+    "pleaseWait": "Por favor espera...",
+    "endOfProcedure": "Fin del procedimiento",
+    "mustBeAtLeast": "{{field}} debe ser al menos {{minValue}} {{unit}}",
+    "mustBeAtMost": "{{field}} debe ser como máximo {{maxValue}} {{unit}}",
+    "pause": "Pausa",
+    "resume": "Reanudar",
+    "paused": "Pausado",
+    "alarm": "Alarma",
+    "ok": "OK",
+    "waiting": "Esperando..."
+  },
+  "operationTitles": {
+    "automatic": "Automático",
+    "info": "Información",
+    "maintenance": "Mantenimiento",
+    "manual": "Procedimiento manual",
+    "setup": "Configuración",
+    "secondProcedure": "Segundo procedimiento",
+    "firstProcedure": "Primer procedimiento"
+  },
+  "operations": {
+    "automatic": "Automático",
+    "info": "Información",
+    "maintenance": "Mantenimiento",
+    "maintenance_": {
+      "testRun": "Prueba",
+      "runs": {
+        "firstProcedure": "Primer procedimiento",
+        "secondProcedure": "Segundo procedimiento",
+        "thirdProcedure": "Tercer procedimiento",
+        "fourthProcedure": "Cuarto procedimiento",
+        "fifthProcedure": "Quinto procedimiento",
+        "sixthProcedure": "Sexto procedimiento"
+      },
+      "actuatorPressButRunningProcedure": "Para alternar este actuador, primero debe detener el procedimiento.",
+      "testRunPressButActiveActuators": "Para comenzar una prueba de ejecución, primero debe deshabilitar a todos los actuadores"
+    },
+    "manual": "Manual",
+    "manual_": {
+      "thirdProcedure": "Tercer procedimiento",
+      "fourthProcedure": "Cuarto procedimiento",
+      "firstProcedure": "Primer procedimiento",
+      "secondProcedure": "Segundo procedimiento",
+      "secondProcedure_": {
+        "selectOption": "Seleccione la configuración en la sección izquierda",
+        "secondProcedureTime": "Segundo tiempo de procedimiento",
+        "secondProcedureHoldTime": "Segundo procedimiento Tiempo de retención",
+        "secondProcedureInProgress": "Segundo procedimiento en progreso",
+        "setSecondProcedureTime": "Establezca el tiempo del segundo procedimiento"
+      },
+      "firstProcedure_": {
+        "innerPhaseElapsedTime": "Tiempo de fase interno",
+        "totalTime": "Tiempo total",
+        "valueA": "Cantidad de valor A",
+        "value1": "Cantidad de valor 1",
+        "firstProcedureTotalTime": "Tiempo total",
+        "running": "Correr",
+        "innerPhase": "Fase interna"
+      }
+    },
+    "setup": "Configuración",
+    "setup_": {
+      "language": "Idioma",
+      "unitsOfMeasure": "Unidades de medida",
+      "quickSetup": "Quicksetup",
+      "quickSetup_": {
+        "completed": "Quicksetup completada"
+      }
+    }
+  },
+  "wifi": {},
+  "units": {
+    "minutes": "minutos",
+    "seconds": "segundos"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "buttons": {
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "enter": "Entrer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "finish": "Finition",
+    "ok": "OK",
+    "goToHomepage": "Aller à la page d'accueil",
+    "print": "Imprimer"
+  },
+  "errors": {
+    "emptyValue": "La valeur est vide!",
+    "fieldIsRequired": "Le champ est obligatoire",
+    "genericError": "Erreur générique",
+    "minimumResolution": "La résolution minimale requise est {{width}}x{{height}}"
+  },
+  "fields": {
+    "gain": "Gagner",
+    "language": "Langue",
+    "offset": "Compenser",
+    "pressure": "Pression",
+    "tare": "Tare",
+    "temperature": "Température",
+    "unitsOfMeasure": "Unités de mesure",
+    "volume": "Volume",
+    "weight": "Poids",
+    "software": "Logiciel",
+    "serialNumber": "Numéro de série",
+    "license": "Licence",
+    "dbVersion": "Version de la base de données",
+    "activationCode": "Code d'activation",
+    "vin": "VIN",
+    "maxPressure": "Pression maximale"
+  },
+  "messages": {
+    "valueModified": "Valeur modifiée",
+    "connectDeviceMessage": "Veuillez connecter l'appareil. Une fois fait, appuyez sur Continuer.",
+    "disconnectDeviceMessage": "Veuillez déconnecter l'appareil. Une fois fait, appuyez sur Continuer."
+  },
+  "misc": {
+    "back": "Dos",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "converted": "Converti",
+    "error": "Erreur",
+    "info": "Informations",
+    "raw": "Brut",
+    "set": "Ensemble",
+    "warning": "Avertissement",
+    "yes": "Oui",
+    "stop": "Arrêt",
+    "processed": "Traité",
+    "insertVin": "Insérez le VIN",
+    "instructions": "Instructions",
+    "continue": "Continuer",
+    "skipAndContinue": "Passer & Continuer",
+    "startup": "Démarrer",
+    "pleaseWait": "Veuillez patienter...",
+    "endOfProcedure": "Fin de la procédure",
+    "mustBeAtLeast": "{{field}} doit être au moins {{minValue}} {{unit}}",
+    "mustBeAtMost": "{{field}} doit être au maximum {{maxValue}} {{unit}}",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "paused": "En Pause",
+    "alarm": "Alarme",
+    "ok": "OK",
+    "waiting": "En attente..."
+  },
+  "operationTitles": {
+    "automatic": "Automatique",
+    "info": "Informations",
+    "maintenance": "Entretien",
+    "manual": "Procédure manuelle",
+    "setup": "Installation",
+    "secondProcedure": "Deuxième procédure",
+    "firstProcedure": "Première procédure"
+  },
+  "operations": {
+    "automatic": "Automatique",
+    "info": "Informations",
+    "maintenance": "Entretien",
+    "maintenance_": {
+      "testRun": "Essai",
+      "runs": {
+        "firstProcedure": "Première procédure",
+        "secondProcedure": "Deuxième procédure",
+        "thirdProcedure": "Troisième procédure",
+        "fourthProcedure": "Quatrième procédure",
+        "fifthProcedure": "Cinquième procédure",
+        "sixthProcedure": "Sixième procédure"
+      },
+      "actuatorPressButRunningProcedure": "Pour basculer cet actionneur, vous devez d'abord arrêter la procédure.",
+      "testRunPressButActiveActuators": "Pour démarrer un essai, vous devez d'abord désactiver tous les actionneurs"
+    },
+    "manual": "Manuel",
+    "manual_": {
+      "thirdProcedure": "Troisième procédure",
+      "fourthProcedure": "Quatrième procédure",
+      "firstProcedure": "Première procédure",
+      "secondProcedure": "Deuxième procédure",
+      "secondProcedure_": {
+        "selectOption": "Sélectionnez la configuration dans la section de gauche",
+        "secondProcedureTime": "Deuxième temps de procédure",
+        "secondProcedureHoldTime": "Deuxième procédure Temps de maintien",
+        "secondProcedureInProgress": "Deuxième procédure en cours",
+        "setSecondProcedureTime": "Définir le deuxième temps de procédure"
+      },
+      "firstProcedure_": {
+        "innerPhaseElapsedTime": "Temps de phase intérieure",
+        "totalTime": "Temps total",
+        "valueA": "Quantité de valeur A",
+        "value1": "Montant de la valeur 1",
+        "firstProcedureTotalTime": "Temps total",
+        "running": "En cours d'exécution",
+        "innerPhase": "Phase intérieure"
+      }
+    },
+    "setup": "Installation",
+    "setup_": {
+      "language": "Langue",
+      "unitsOfMeasure": "Unités de mesure",
+      "quickSetup": "Quicksetup",
+      "quickSetup_": {
+        "completed": "Quicksetup terminé"
+      }
+    }
+  },
+  "wifi": {},
+  "units": {
+    "minutes": "minutes",
+    "seconds": "secondes"
+  }
+}

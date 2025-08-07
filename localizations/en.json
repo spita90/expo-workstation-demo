@@ -1,0 +1,135 @@
+{
+  "buttons": {
+    "close": "Close",
+    "confirm": "Confirm",
+    "enter": "Enter",
+    "next": "Next",
+    "previous": "Previous",
+    "finish": "Finish",
+    "ok": "OK",
+    "goToHomepage": "Go to Homepage",
+    "print": "Print"
+  },
+  "errors": {
+    "emptyValue": "Value is empty!",
+    "fieldIsRequired": "Field is mandatory",
+    "genericError": "Generic error",
+    "minimumResolution": "The minimum required resolution is {{width}}x{{height}}"
+  },
+  "fields": {
+    "gain": "Gain",
+    "language": "Language",
+    "offset": "Offset",
+    "pressure": "Pressure",
+    "tare": "Tare",
+    "temperature": "Temperature",
+    "unitsOfMeasure": "Units of measure",
+    "volume": "Volume",
+    "weight": "Weight",
+    "software": "Software",
+    "serialNumber": "Serial number",
+    "license": "License",
+    "dbVersion": "Database version",
+    "activationCode": "Activation code",
+    "vin": "VIN",
+    "maxPressure": "Max pressure"
+  },
+  "messages": {
+    "valueModified": "Value modified",
+    "connectDeviceMessage": "Please connect device. Once done press Continue.",
+    "disconnectDeviceMessage": "Please disconnect device. Once done press Continue."
+  },
+  "misc": {
+    "back": "Back",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "converted": "Converted",
+    "error": "Error",
+    "info": "Info",
+    "raw": "Raw",
+    "set": "Set",
+    "warning": "Warning",
+    "yes": "Yes",
+    "stop": "Stop",
+    "processed": "Processed",
+    "insertVin": "Insert VIN",
+    "instructions": "Instructions",
+    "continue": "Continue",
+    "skipAndContinue": "Skip & Continue",
+    "startup": "Startup",
+    "pleaseWait": "Please wait...",
+    "endOfProcedure": "End of procedure",
+    "mustBeAtLeast": "{{field}} must be at least {{minValue}} {{unit}}",
+    "mustBeAtMost": "{{field}} must be at most {{maxValue}} {{unit}}",
+    "pause": "Pause",
+    "resume": "Resume",
+    "paused": "Paused",
+    "alarm": "Alarm",
+    "ok": "OK",
+    "waiting": "Waiting..."
+  },
+  "operationTitles": {
+    "automatic": "Automatic",
+    "info": "Info",
+    "maintenance": "Maintenance",
+    "manual": "Manual procedure",
+    "setup": "Setup",
+    "secondProcedure": "Second Procedure",
+    "firstProcedure": "First Procedure"
+  },
+  "operations": {
+    "automatic": "Automatic",
+    "info": "Info",
+    "maintenance": "Maintenance",
+    "maintenance_": {
+      "testRun": "Test run",
+      "runs": {
+        "firstProcedure": "First procedure",
+        "secondProcedure": "Second procedure",
+        "thirdProcedure": "Third procedure",
+        "fourthProcedure": "Fourth procedure",
+        "fifthProcedure": "Fifth procedure",
+        "sixthProcedure": "Sixth procedure"
+      },
+      "actuatorPressButRunningProcedure": "To toggle this actuator you must stop the procedure first.",
+      "testRunPressButActiveActuators": "To start a test run you must disable all actuators first"
+    },
+    "manual": "Manual",
+    "manual_": {
+      "thirdProcedure": "Third procedure",
+      "fourthProcedure": "Fourth procedure",
+      "firstProcedure": "First procedure",
+      "secondProcedure": "Second procedure",
+      "secondProcedure_": {
+        "setSecondProcedureTime": "Set second procedure time",
+        "selectOption": "Select the configuration on the left section",
+        "secondProcedureTime": "Second procedure time",
+        "secondProcedureHoldTime": "Second procedure hold time",
+        "secondProcedureInProgress": "Second procedure in progress"
+      },
+      "firstProcedure_": {
+        "innerPhaseElapsedTime": "Inner phase time",
+        "totalTime": "Total time",
+        "valueA": "Amount of Value A",
+        "value1": "Amount of Value 1",
+        "firstProcedureTotalTime": "First procedure total time",
+        "running": "Running",
+        "innerPhase": "Inner phase"
+      }
+    },
+    "setup": "Setup",
+    "setup_": {
+      "language": "Language",
+      "unitsOfMeasure": "Units of measure",
+      "quickSetup": "Quicksetup",
+      "quickSetup_": {
+        "completed": "Quicksetup completed"
+      }
+    }
+  },
+  "wifi": {},
+  "units": {
+    "minutes": "minutes",
+    "seconds": "seconds"
+  }
+}
