@@ -69,16 +69,15 @@
     "waiting": "Esperando..."
   },
   "operationTitles": {
-    "automatic": "Automático",
     "info": "Información",
     "maintenance": "Mantenimiento",
     "manual": "Procedimiento manual",
     "setup": "Configuración",
     "secondProcedure": "Segundo procedimiento",
-    "firstProcedure": "Primer procedimiento"
+    "firstProcedure": "Primer procedimiento",
+    "keyboard": "Teclado"
   },
   "operations": {
-    "automatic": "Automático",
     "info": "Información",
     "maintenance": "Mantenimiento",
     "maintenance_": {
@@ -125,7 +124,8 @@
       "quickSetup_": {
         "completed": "Quicksetup completada"
       }
-    }
+    },
+    "keyboard": "Teclado"
   },
   "wifi": {},
   "units": {

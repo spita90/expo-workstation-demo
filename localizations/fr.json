@@ -69,16 +69,15 @@
     "waiting": "En attente..."
   },
   "operationTitles": {
-    "automatic": "Automatique",
     "info": "Informations",
     "maintenance": "Entretien",
     "manual": "Procédure manuelle",
     "setup": "Installation",
     "secondProcedure": "Deuxième procédure",
-    "firstProcedure": "Première procédure"
+    "firstProcedure": "Première procédure",
+    "keyboard": "Clavier"
   },
   "operations": {
-    "automatic": "Automatique",
     "info": "Informations",
     "maintenance": "Entretien",
     "maintenance_": {
@@ -125,7 +124,8 @@
       "quickSetup_": {
         "completed": "Quicksetup terminé"
       }
-    }
+    },
+    "keyboard": "Clavier"
   },
   "wifi": {},
   "units": {

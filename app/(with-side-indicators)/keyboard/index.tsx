@@ -5,13 +5,13 @@ import { Stack } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
 
-export default function AutomaticProceduresScreen() {
+export default function KeyboardScreen() {
   const { toast } = useToast();
   const [value, setValue] = useState("");
 
   return (
     <>
-      <Stack.Screen name="automaticProcedures" />
+      <Stack.Screen name="keyboard" />
       <View className="flex-1 gap-4">
         <Input autoFocus value={value} focused />
         <Keyboard

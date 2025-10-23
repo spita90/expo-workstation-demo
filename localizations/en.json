@@ -69,16 +69,15 @@
     "waiting": "Waiting..."
   },
   "operationTitles": {
-    "automatic": "Automatic",
     "info": "Info",
     "maintenance": "Maintenance",
     "manual": "Manual procedure",
     "setup": "Setup",
     "secondProcedure": "Second Procedure",
-    "firstProcedure": "First Procedure"
+    "firstProcedure": "First Procedure",
+    "keyboard": "Keyboard"
   },
   "operations": {
-    "automatic": "Automatic",
     "info": "Info",
     "maintenance": "Maintenance",
     "maintenance_": {
@@ -125,7 +124,8 @@
       "quickSetup_": {
         "completed": "Quicksetup completed"
       }
-    }
+    },
+    "keyboard": "Keyboard"
   },
   "wifi": {},
   "units": {

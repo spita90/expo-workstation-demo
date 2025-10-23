@@ -2,7 +2,6 @@ import AutomaticProc from "@/assets/svgs/automatic_proc.svg";
 import Info from "@/assets/svgs/info.svg";
 import Maintenance from "@/assets/svgs/maintenance.svg";
 import ManualProc from "@/assets/svgs/manual_proc.svg";
-import Service from "@/assets/svgs/service.svg";
 import Setup from "@/assets/svgs/setup.svg";
 import { OperationGrid } from "@/components/operation/OperationGrid";
 import { Page } from "@/components/Page";
@@ -11,14 +10,14 @@ import { Stack } from "expo-router";
 
 const OPERATIONS: Operation[] = [
   {
-    translationKey: "operations.automatic",
+    translationKey: "operations.manual",
     icon: AutomaticProc,
-    linkTo: "/automaticProcedures",
+    linkTo: "/manualProcedures",
   },
   {
-    translationKey: "operations.manual",
-    icon: ManualProc,
-    linkTo: "/manualProcedures",
+    translationKey: "operations.maintenance",
+    icon: Maintenance,
+    linkTo: "/maintenance",
   },
   {
     translationKey: "operations.setup",
@@ -26,9 +25,9 @@ const OPERATIONS: Operation[] = [
     linkTo: "/setup",
   },
   {
-    translationKey: "operations.maintenance",
-    icon: Maintenance,
-    linkTo: "/maintenance",
+    translationKey: "operations.keyboard",
+    icon: ManualProc,
+    linkTo: "/keyboard",
   },
   {
     translationKey: "operations.info",
