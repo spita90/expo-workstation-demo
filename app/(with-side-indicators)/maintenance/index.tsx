@@ -123,29 +123,29 @@ const actuatorButtonsMap: Partial<Record<Peripheral, ActuatorView>> = {
     position: { top: "36%", left: "24%" },
     icon: "EV",
   },
-  [Peripheral.VACUUM_PUMP]: {
+  [Peripheral.ITEM_1]: {
     position: { top: "2%", left: "48%" },
     icon: "LOAD",
   },
-  [Peripheral.COMPRESSOR]: {
+  [Peripheral.ITEM_2]: {
     position: { top: "22%", right: "11%" },
     icon: "LOAD",
   },
-  [Peripheral.CONDENSER_FAN]: {
+  [Peripheral.ITEM_3]: {
     position: { bottom: "16%", right: "19%" },
     icon: "LOAD",
   },
-  [Peripheral.HEATER]: {
+  [Peripheral.ITEM_4]: {
     position: { bottom: "10%", right: "46%" },
     icon: "LOAD",
   },
 };
 
 const actuators: Peripheral[] = [
-  Peripheral.COMPRESSOR,
-  Peripheral.CONDENSER_FAN,
-  Peripheral.VACUUM_PUMP,
-  Peripheral.HEATER,
+  Peripheral.ITEM_1,
+  Peripheral.ITEM_2,
+  Peripheral.ITEM_3,
+  Peripheral.ITEM_4,
   Peripheral.EV_01,
   Peripheral.EV_02,
   Peripheral.EV_03,
@@ -183,7 +183,7 @@ const testRuns: TestRun[] = [
       Peripheral.EV_02,
       Peripheral.EV_03,
       Peripheral.EV_15,
-      Peripheral.COMPRESSOR,
+      Peripheral.ITEM_4,
     ],
   },
   {
@@ -193,7 +193,7 @@ const testRuns: TestRun[] = [
       Peripheral.EV_01,
       Peripheral.EV_02,
       Peripheral.EV_04,
-      Peripheral.VACUUM_PUMP,
+      Peripheral.ITEM_1,
     ],
   },
   {
@@ -227,10 +227,10 @@ const warningModalCaptions = {
 
 const getActuatorLabel = (actuator: Peripheral) => {
   const customLabelActuators = {
-    [Peripheral.VACUUM_PUMP]: "PMP",
-    [Peripheral.COMPRESSOR]: "CMP",
-    [Peripheral.CONDENSER_FAN]: "CND",
-    [Peripheral.HEATER]: "HTR",
+    [Peripheral.ITEM_1]: "ITM1",
+    [Peripheral.ITEM_2]: "ITM2",
+    [Peripheral.ITEM_3]: "ITM3",
+    [Peripheral.ITEM_4]: "ITM4",
   } as Record<Peripheral, string>;
   if (actuator in customLabelActuators) {
     return customLabelActuators[actuator];
@@ -1058,7 +1058,7 @@ export default function TestIOScreen() {
             )}
             {!runningTestRunCode && (
               <Button
-                className="flex-row gap-2 h-fit self-end"
+                className="flex-row gap-2 h-fit self-start"
                 variant="secondary"
                 onPress={handleTestRunButtonPress}
               >

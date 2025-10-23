@@ -38,10 +38,10 @@ export enum Peripheral {
   EV_20 = 20,
   EV_21 = 21,
   EV_22 = 22,
-  COMPRESSOR = 23,
-  HEATER = 24,
-  VACUUM_PUMP = 25,
-  CONDENSER_FAN = 26,
+  ITEM_1 = 23,
+  ITEM_2 = 24,
+  ITEM_3 = 25,
+  ITEM_4 = 26,
 }
 
 export type Metric = {
