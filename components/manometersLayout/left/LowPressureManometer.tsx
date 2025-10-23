@@ -84,7 +84,7 @@ export const LowPressureManometer = () => {
           </>
         )}
       </TextClassContext.Provider>
-      <Text className="absolute left-0.5 bottom-[9.3%] font-agdasima text-3xl font-bold px-1.5 py-0 rounded bg-[#0B99E4]">
+      <Text className="absolute left-0.5 bottom-[9.3%] font-agdasima text-3xl font-bold px-1.5 py-0 rounded bg-[#009977]">
         LOW
       </Text>
       <svg
@@ -197,10 +197,10 @@ export const LowPressureManometer = () => {
             y2="199.44"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#77CEF5" />
-            <stop offset="0.333333" stopColor="#2BB3EB" />
-            <stop offset="0.666667" stopColor="#0997E3" />
-            <stop offset="1" stopColor="#2BB3EB" />
+            <stop stopColor="#22EEAA" />
+            <stop offset="0.333333" stopColor="#22AA00" />
+            <stop offset="0.666667" stopColor="#009977" />
+            <stop offset="1" stopColor="#005533" />
           </linearGradient>
           <linearGradient
             id="paint10_linear_2326_89892"
@@ -210,10 +210,10 @@ export const LowPressureManometer = () => {
             y2="301.784"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#77CEF5" />
-            <stop offset="0.333333" stopColor="#2BB3EB" />
-            <stop offset="0.666667" stopColor="#0997E3" />
-            <stop offset="1" stopColor="#2BB3EB" />
+            <stop stopColor="#22EEAA" />
+            <stop offset="0.333333" stopColor="#22AA00" />
+            <stop offset="0.666667" stopColor="#009977" />
+            <stop offset="1" stopColor="#005533" />
           </linearGradient>
         </defs>
       </svg>

@@ -14,7 +14,7 @@
     "emptyValue": "Value is empty!",
     "fieldIsRequired": "Field is mandatory",
     "genericError": "Generic error",
-    "minimumResolution": "The minimum required resolution is {{width}}x{{height}}"
+    "minimumResolution": "The minimum required resolution is {{width}}x{{height}}. Please view it on a larger screen."
   },
   "fields": {
     "gain": "Gain",

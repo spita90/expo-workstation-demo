@@ -14,7 +14,7 @@
     "emptyValue": "La valeur est vide!",
     "fieldIsRequired": "Le champ est obligatoire",
     "genericError": "Erreur générique",
-    "minimumResolution": "La résolution minimale requise est {{width}}x{{height}}"
+    "minimumResolution": "La résolution minimale requise est {{width}}x{{height}}. Veuillez l'afficher sur un écran plus grand."
   },
   "fields": {
     "gain": "Gagner",
