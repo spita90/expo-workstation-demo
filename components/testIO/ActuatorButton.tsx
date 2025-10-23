@@ -27,7 +27,7 @@ export const ActuatorButton = React.forwardRef<
   return (
     <Pressable
       className={cn(
-        "flex-row px-1 py-1 gap-0.5 rounded-full items-center bg-white active:opacity-50",
+        "flex-row px-1 py-1 gap-0.5 rounded-full items-center bg-white active:opacity-50 scale-[-1]",
         { "bg-neutral-600 border-[0.5px] border-neutral-300": active },
         className
       )}

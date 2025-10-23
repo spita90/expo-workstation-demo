@@ -331,7 +331,7 @@ export default function TestIOScreen() {
       onBackButtonPress={handleBackPress}
     >
       <Dialog className="flex-1" open={warningModalOpenReason !== undefined}>
-        <View className="flex-1 mb-2 items-center justify-center">
+        <View className="flex-1 mb-2 items-center justify-center scale-[-1]">
           <Pressable
             className={cn(
               "absolute top-0 bottom-0 left-0 right-0 h-full w-full rounded bg-black",
@@ -1020,7 +1020,7 @@ export default function TestIOScreen() {
               </path>
             )}
           </svg>
-          <View className="absolute flex-row bottom-2 right-2 gap-2">
+          <View className="absolute flex-row bottom-2 right-2 gap-2 scale-[-1]">
             {/* test runs */}
             {testRunModalOpen && (
               <View className="bg-background p-2 rounded">
